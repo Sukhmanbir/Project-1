@@ -11,4 +11,5 @@
 --%>
 <%@ Page Title="Teams" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Teams.aspx.cs" Inherits="Project_1.Teams" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <h1>Teams</h1>
 </asp:Content>

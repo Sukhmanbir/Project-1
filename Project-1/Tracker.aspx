@@ -9,4 +9,5 @@
 <%@ Page Title="Tracker" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Tracker.aspx.cs" Inherits="Project_1.Tracker" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <h1>Tracker</h1>
 </asp:Content>
