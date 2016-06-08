@@ -1,10 +1,15 @@
-﻿<%@ Page Title="Games" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Games.aspx.cs" Inherits="Project_1.Games" %>
-<%-- 
-    Author: Sukhmanbir Kaur
-    Student Number: 200303856
-    Date Modified: June 08, 2016
-    Version History: Initial Commit
-    Description: shows the details of the games
- --%>
+﻿<%--
+
+    File: Games.aspx
+
+    Manage the games registered in the system
+
+    Author: Douglas Brunner (020087918)
+    Modified: 2016-06-08
+    History: Initial commit
+
+--%>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Games.aspx.cs" Inherits="Project_1.Games" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <h1>Games</h1>
 </asp:Content>
