@@ -75,7 +75,6 @@
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
     <Content Include="ResetPassword.aspx" />
-    <Content Include="ResetPassword2.aspx" />
     <Content Include="Results.aspx" />
     <Content Include="Signup.aspx" />
     <Content Include="Site.Master" />
@@ -169,13 +168,6 @@
     <Compile Include="ResetPassword.aspx.designer.cs">
       <DependentUpon>ResetPassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ResetPassword2.aspx.cs">
-      <DependentUpon>ResetPassword2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ResetPassword2.aspx.designer.cs">
-      <DependentUpon>ResetPassword2.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Results.aspx.cs">
       <DependentUpon>Results.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -238,7 +230,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>2002</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
