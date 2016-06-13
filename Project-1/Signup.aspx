@@ -5,8 +5,9 @@
     Registers a new site user.
 
     Author: Douglas Brunner (020087918)
-    Modified: 2016-06-08
+    Modified: 2016-06-13
     History: Initial commit
+        -- Added signup form
 
 --%>
 <%@ Page Title="Signup" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Signup.aspx.cs" Inherits="Project_1.Signup" %>
