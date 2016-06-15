@@ -74,6 +74,7 @@
   <ItemGroup>
     <Content Include="CreateGame.aspx" />
     <Content Include="CreateTeam.aspx" />
+    <Content Include="CreateTracker.aspx" />
     <Content Include="Dashboard.aspx" />
     <Content Include="Games.aspx" />
     <Content Include="Login.aspx" />
@@ -150,6 +151,13 @@
     </Compile>
     <Compile Include="CreateTeam.aspx.designer.cs">
       <DependentUpon>CreateTeam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateTracker.aspx.cs">
+      <DependentUpon>CreateTracker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateTracker.aspx.designer.cs">
+      <DependentUpon>CreateTracker.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
