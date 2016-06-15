@@ -17,7 +17,7 @@
                 <li id="home" runat="server"><a href="Default.aspx"><i class="fa fa-home fa-lg"></i> Home</a></li>
                 <li id="signup" runat="server"><a href="Signup.aspx"><i class="fa fa-user-plus fa-lg"></i> Signup</a></li>
                 <li id="login" runat="server"><a href="Login.aspx"><i class="fa fa-sign-in fa-lg"></i> Login</a></li>
-                <li id="trackers" runat="server"><a href="Tracker.aspx"><i class="fa fa-location-arrow fa-lg"></i> Trackers</a></li>
+                <li id="trackers" runat="server"><a href="Trackers.aspx"><i class="fa fa-location-arrow fa-lg"></i> Trackers</a></li>
                 <li id="teams" runat="server"><a href="Teams.aspx"><i class="fa fa-users fa-lg"></i> Teams</a></li>
                 <li id="games" runat="server"><a href="Games.aspx"><i class="fa fa-sign-out fa-lg"></i> Games</a></li>
                 <li id="results" runat="server"><a href="Results.aspx"><i class="fa fa-table fa-lg"></i> Results</a></li>

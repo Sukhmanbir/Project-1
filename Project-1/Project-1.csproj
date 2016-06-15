@@ -114,7 +114,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Teams.aspx" />
-    <Content Include="Tracker.aspx" />
+    <Content Include="Trackers.aspx" />
     <Content Include="User_Controls\Jumbotron.ascx" />
     <Content Include="User_Controls\Navbar.ascx" />
     <Content Include="Scripts\app.js" />
@@ -215,12 +215,12 @@
     <Compile Include="Teams.aspx.designer.cs">
       <DependentUpon>Teams.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Tracker.aspx.cs">
-      <DependentUpon>Tracker.aspx</DependentUpon>
+    <Compile Include="Trackers.aspx.cs">
+      <DependentUpon>Trackers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Tracker.aspx.designer.cs">
-      <DependentUpon>Tracker.aspx</DependentUpon>
+    <Compile Include="Trackers.aspx.designer.cs">
+      <DependentUpon>Trackers.aspx</DependentUpon>
     </Compile>
     <Compile Include="User_Controls\Jumbotron.ascx.cs">
       <DependentUpon>Jumbotron.ascx</DependentUpon>
