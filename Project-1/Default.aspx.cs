@@ -5,6 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+//required for EF DB access
+using Project_1.Models;
+using System.Web.ModelBinding;
+using System.Linq.Dynamic;
+
 namespace Project_1
 {
     public partial class Default : System.Web.UI.Page
