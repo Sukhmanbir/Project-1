@@ -47,7 +47,7 @@
 
         <hr>
 
-        <p>Already have an account? <a href="/Login.aspx">Signup</a></p>
+        <p>Already have an account? <a href="/Login.aspx">Login</a></p>
 
     </div>
 
