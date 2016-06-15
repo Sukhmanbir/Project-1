@@ -28,7 +28,8 @@
                 <label>Security Answer</label>
                 <input type="text" class="form-control" name="answer" required>
             </div>
-            <button type="submit" class="btn btn-warning btn-lg">Reset</button>
+            <button type="submit" class="btn btn-primary btn-lg">Reset</button>
+            <a href="Login.aspx" class="btn btn-warning btn-lg">Cancel</a>
         </form>
 
     </div>

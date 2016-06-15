@@ -28,6 +28,7 @@
         <hr>
 
         <p>Need an account? <a href="/Signup.aspx">Signup</a></p>
+        <p>Forgot your password? <a href="/ResetPassword.aspx">Reset Password</a></p>
 
     </div>
 </asp:Content>
