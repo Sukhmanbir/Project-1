@@ -18,10 +18,8 @@
         </div>
         <div class="col-xs-12 col-md-6 trackers">
             <label for="trackers">Tracker:</label>
-            <select id="trackers" class="form-control">
-                <option>NHL Hockey</option>
-                <option>Indian Cricket</option>
-            </select>
+            <asp:DropDownList ID="TrackerList" runat="server" AutoPostBack="true" CssClass="form-control dropdown-toggle"
+                OnSelectedIndexChanged="Trackers_SelectedIndexChanged" />
         </div>
     </div>
     <div id="gameList" class="row">
