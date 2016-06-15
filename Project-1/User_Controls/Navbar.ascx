@@ -21,7 +21,7 @@
                 <li id="teams" runat="server"><a href="Teams.aspx"><i class="fa fa-users fa-lg"></i> Teams</a></li>
                 <li id="games" runat="server"><a href="Games.aspx"><i class="fa fa-sign-out fa-lg"></i> Games</a></li>
                 <li id="results" runat="server"><a href="Results.aspx"><i class="fa fa-table fa-lg"></i> Results</a></li>
-                <li id="dashboard" runat="server"><a href="Dashboard.aspx"><i class="fa fa-globe fa-lg"></i> Dashboard</a></li>
+                <li id="dashboard" runat="server"><a href="/"><i class="fa fa-globe fa-lg"></i> Dashboard</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
