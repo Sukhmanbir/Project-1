@@ -7,26 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project_1
+namespace Project_1.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Sport
+    public partial class Team
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Sport()
+        public Team()
         {
-            this.Trackers = new HashSet<Tracker>();
-            this.Trackers1 = new HashSet<Tracker>();
+            this.Games = new HashSet<Game>();
+            this.Games1 = new HashSet<Game>();
         }
     
-        public int sport_id { get; set; }
-        public string name { get; set; }
+        public int TeamID { get; set; }
+        public string TeamName { get; set; }
+        public string TeamDesc { get; set; }
+        public Nullable<int> Total_pts_scored { get; set; }
+        public Nullable<int> Total_pts_allowed { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tracker> Trackers { get; set; }
+        public virtual ICollection<Game> Games { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tracker> Trackers1 { get; set; }
+        public virtual ICollection<Game> Games1 { get; set; }
     }
 }
