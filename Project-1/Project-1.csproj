@@ -72,6 +72,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CreateGame.aspx" />
     <Content Include="CreateTeam.aspx" />
     <Content Include="Dashboard.aspx" />
     <Content Include="Games.aspx" />
@@ -135,6 +136,13 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateGame.aspx.cs">
+      <DependentUpon>CreateGame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateGame.aspx.designer.cs">
+      <DependentUpon>CreateGame.aspx</DependentUpon>
     </Compile>
     <Compile Include="CreateTeam.aspx.cs">
       <DependentUpon>CreateTeam.aspx</DependentUpon>
