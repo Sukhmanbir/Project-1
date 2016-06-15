@@ -25,7 +25,7 @@
                 </select>
             </div>
             <button type="submit" class="btn btn-primary btn-lg">Create</button>
-            <button type="submit" class="btn btn-warning btn-lg">Cancel</button>
+            <a href="Teams.aspx" type="submit" class="btn btn-warning btn-lg">Cancel</a>
         </form>
 
         <hr>
