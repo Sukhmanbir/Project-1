@@ -87,16 +87,6 @@
     <Content Include="CreateTracker.aspx" />
     <Content Include="Dashboard.aspx" />
     <Content Include="Games.aspx" />
-    <Content Include="Models\GameTrackerModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GameTrackerModel.edmx</DependentUpon>
-      <LastGenOutput>GameTrackerModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\GameTrackerModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GameTrackerModel.edmx</DependentUpon>
-      <LastGenOutput>GameTrackerModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
     <Content Include="ResetPassword.aspx" />
@@ -106,13 +96,6 @@
     <Content Include="Scripts\jquery-2.2.3.min.map" />
     <Content Include="app.config" />
     <Content Include="README.md" />
-    <EntityDeploy Include="Models\GameTrackerModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>GameTrackerModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\GameTrackerModel.edmx.diagram">
-      <DependentUpon>GameTrackerModel.edmx</DependentUpon>
-    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -200,30 +183,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Game.cs">
-      <DependentUpon>GameTrackerModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Games.aspx.cs">
       <DependentUpon>Games.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Games.aspx.designer.cs">
       <DependentUpon>Games.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GameTrackerModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GameTrackerModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GameTrackerModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GameTrackerModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GameTrackerModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GameTrackerModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -253,24 +218,12 @@
     <Compile Include="Signup.aspx.designer.cs">
       <DependentUpon>Signup.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Sport.cs">
-      <DependentUpon>GameTrackerModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Table.cs">
-      <DependentUpon>GameTrackerModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Team.cs">
-      <DependentUpon>GameTrackerModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Teams.aspx.cs">
       <DependentUpon>Teams.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Teams.aspx.designer.cs">
       <DependentUpon>Teams.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Tracker.cs">
-      <DependentUpon>GameTrackerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Trackers.aspx.cs">
       <DependentUpon>Trackers.aspx</DependentUpon>
@@ -307,6 +260,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

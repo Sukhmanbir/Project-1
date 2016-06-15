@@ -12,11 +12,19 @@ namespace Project_1
         protected void Page_Load(object sender, EventArgs e)
         {
             this.GetTrackers();
+            this.GetGames();
         }
 
         protected void Trackers_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        /**
+         * Gets the list of games for selected tracker
+         */
+        protected void GetGames()
+        {
         }
 
         /**

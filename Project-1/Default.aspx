@@ -24,6 +24,10 @@
     </div>
     <div id="gameList" class="row">
         <div class="col-xs-12 text-center">
+            <asp:BulletedList ID="GameList" runat="server" CssClass="form-control">
+
+            </asp:BulletedList>
+            
             <ul class="list-inline slimList">
                 <li>
                     <p><strong>2016.09.23</strong></p>
