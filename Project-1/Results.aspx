@@ -7,7 +7,7 @@
         -- implemented wireframe
 --%>
 
-<%@ Page Title="Results" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Results.aspx.cs" Inherits="Project_1.Results" %>
+<%@ Page Title="Enter Game Results" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Results.aspx.cs" Inherits="Project_1.Results" %>
 
 <asp:Content ID="Results" ContentPlaceHolderID="MainContent" runat="server">
     <h1><span class="fa fa-table"></span> Enter Game Results</h1>

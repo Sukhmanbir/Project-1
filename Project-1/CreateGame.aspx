@@ -5,7 +5,7 @@
     Description: form to create a game
     Version History: Initial Commit
     --%>
-<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CreateGame.aspx.cs" Inherits="Project_1.CreateGame" %>
+<%@ Page Title="Create Game" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CreateGame.aspx.cs" Inherits="Project_1.CreateGame" %>
 <asp:Content ID="CreateGame" ContentPlaceHolderID="MainContent" runat="server">
     <div class="col-sm-6 col-sm-offset-3">
         <h1><span class="fa fa-trophy"></span> Create Game</h1>
