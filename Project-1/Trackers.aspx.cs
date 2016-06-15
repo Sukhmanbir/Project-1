@@ -95,7 +95,7 @@ namespace Project_1
             //use EF to find the selected student from DB and remove it
             using (DefaultConnection db = new DefaultConnection())
             {
-                Tracker deletedTracker = (from trackerRecords in db.Trackers
+                Models.Tracker deletedTracker = (from trackerRecords in db.Trackers
                                                 where trackerRecords.tracker_id == tracker_id
                                           select trackerRecords).FirstOrDefault();
 

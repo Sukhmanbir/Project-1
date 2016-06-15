@@ -31,9 +31,9 @@ namespace Project_1
             using (DefaultConnection db = new DefaultConnection())
             {
                 //populate a tracker instance with the tracker_id from the URL parameter
-                Tracker updatedTracker = (from tracker in db.Trackers
-                                          where tracker.tracker_id == tracker_id
-                                          select tracker).FirstOrDefault();
+                Models.Tracker updatedTracker = (from tracker in db.Trackers
+                                                 where tracker.tracker_id == tracker_id
+                                                 select tracker).FirstOrDefault();
 
 
                 //map the department properties to the form controls
@@ -56,7 +56,7 @@ namespace Project_1
             using (DefaultConnection db = new DefaultConnection())
             {
                 //use tracker model to save the object
-                Tracker newTracker = new Tracker();
+                Models.Tracker newTracker = new Models.Tracker();
 
                 int tracker_id = 0;
                 if (Request.QueryString.Count > 0)
@@ -66,26 +66,26 @@ namespace Project_1
 
                     //get the current tracker from the EF DB
                     newTracker = (from tracker in db.Trackers
-                                     where tracker.tracker_id == tracker_id
-                                     select tracker).FirstOrDefault();
+                                  where tracker.tracker_id == tracker_id
+                                  select tracker).FirstOrDefault();
+
+                    newTracker.name = TrackerNameTextBox.Text;
+                    newTracker.description = DescriptionTextBox.Text;
+
+                    //adds new tracker to the Tracker Table collection
+
+                    //check to see if new tracker is being added
+                    if (tracker_id == 0)
+                    {
+                        db.Trackers.Add(newTracker);
+                    }
+
+                    //save changes - run an update
+                    db.SaveChanges();
+
+                    //redirect to the updated tracker table
+                    Response.Redirect("~/Trackers.aspx");
                 }
-
-                newTracker.name = TrackerNameTextBox.Text;
-                newTracker.description = DescriptionTextBox.Text;
-
-                //adds new tracker to the Tracker Table collection
-
-                //check to see if new tracker is being added
-                if (tracker_id == 0)
-                {
-                    db.Trackers.Add(newTracker);
-                }
-
-                //save changes - run an update
-                db.SaveChanges();
-
-                //redirect to the updated tracker table
-                Response.Redirect("~/Trackers.aspx");
             }
         }
     }
