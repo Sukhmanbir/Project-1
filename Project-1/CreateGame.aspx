@@ -44,9 +44,5 @@
             <a href="Games.aspx" type="submit" class="btn btn-warning btn-lg">Cancel</a>
         </form>
 
-        <hr>
-
-        <p>Need an account? <a href="/Signup.aspx">Signup</a></p>
-
     </div>
 </asp:Content>
