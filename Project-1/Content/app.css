@@ -2,10 +2,45 @@
     Author's Name: Sukhmanbir Kaur
     Student Number: 200303856
     Date Modified: June 08, 2016
-    Version History: Initial Commit
     Description: custom css goes here
+    Version History: Initial Commit
+        - Added styling for homepage
 */
 
+/* sitewide */
+.slimList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
 
+h1, h2 {
+    margin: 1.5em 0 1em 0;
+}
+
+/* homepage specific */
+#gameList ul li {
+    padding: 1em;
+    background: #32383e;
+    border: #222;
+}
+
+    #gameList ul li.today {
+        zoom: 110%;
+        border: #c8c8c8 1px solid;
+    }
+
+#gameList .game {
+    height: 1em;
+    width: 1em;
+}
+
+#gameResults {
+    margin: 4em 0 4em 0;
+}
+
+    #gameResults .row {
+        margin: 2em 0 2em 0;
+    }
 
 

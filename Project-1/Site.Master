@@ -1,4 +1,15 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Project_1.Site" %>
+﻿<%--
+
+    File: Site.Master
+
+    Main layout for the website
+
+    Author: Douglas Brunner (020087918)
+    History: Initial commit
+    Modified: 2016-06-13
+
+--%>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Project_1.Site" %>
 <%@ Register Src="~/User_Controls/Navbar.ascx" TagName="Navbar" TagPrefix="bs3" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,21 +20,21 @@
     <title></title>
     <!-- CSS Section -->
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="Content/font-awesome.min.css" rel="stylesheet" />
     <link href="Content/app.css" rel="stylesheet" />
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <bs3:Navbar runat="server" ID="PrimaryNav"></bs3:Navbar>
-    <div>
-        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+
+    <div class="container">
+        <form id="form1" runat="server">
+        <bs3:Navbar runat="server" ID="PrimaryNav"></bs3:Navbar>
+        <div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
         
-        </asp:ContentPlaceHolder>
+            </asp:ContentPlaceHolder>
+        </div>
+        </form>
     </div>
-    </form>
 
     <!-- JavaScript -->
     <script src="Scripts/jquery-2.2.3.min.js"></script>

@@ -35,9 +35,34 @@ namespace Project_1
                 case "Home Page":
                     home.Attributes.Add("class", "active");
                     break;
-                case "Contact":
-                    contact.Attributes.Add("class", "active");
+                case "Signup":
+                    signup.Attributes.Add("class", "active");
                     break;
+                case "Login":
+                    login.Attributes.Add("class", "active");
+                    break;
+                case "Trackers":
+                    trackers.Attributes.Add("class", "active");
+                    break;
+                case "Create Tracker":
+                    trackers.Attributes.Add("class", "active");
+                    break;
+                case "Teams":
+                    teams.Attributes.Add("class", "active");
+                    break;
+                case "Create Team":
+                    teams.Attributes.Add("class", "active");
+                    break;
+                case "Games":
+                    games.Attributes.Add("class", "active");
+                    break;
+                case "Create Game":
+                    games.Attributes.Add("class", "active");
+                    break;
+                case "Enter Game Results":
+                    results.Attributes.Add("class", "active");
+                    break;
+
             }
         }
     }
