@@ -7,10 +7,10 @@
         - implemented wireframe
 --%>
 
-<%@ Page Title="Tracker" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Trackers.aspx.cs" Inherits="Project_1.Tracker" %>
+<%@ Page Title="Tracker" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Tracker.aspx.cs" Inherits="Project_1.Tracker" %>
 
 <asp:Content ID="Trackers" ContentPlaceHolderID="MainContent" runat="server">
-    <h1><span class="fa fa-location-arrow"></span> Trackers</h1>
+    <h1><span class="fa fa-location-arrow"></span> Trackers <a href="CreateTracker.aspx" class="btn btn-primary pull-right">Create</a></h1>
 
     <table class="table table-striped">
         <thead>
@@ -30,6 +30,7 @@
             <td>2016 Indian Cricket</td>
             <td>The best cricket in Asia, bar none.</td>
             <td>
+
                 <a class="btn btn-primary">Edit</a>
                 <a class="btn btn-danger">Delete</a>
             </td>

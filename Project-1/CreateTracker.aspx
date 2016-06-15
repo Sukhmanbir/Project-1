@@ -19,7 +19,7 @@
                 <input type="text" class="form-control" name="description" required>
             </div>
             <button type="submit" class="btn btn-primary btn-lg">Create</button>
-            <button type="submit" class="btn btn-warning btn-lg">Cancel</button>
+            <a href="Tracker.aspx" type="submit" class="btn btn-warning btn-lg">Cancel</a>
         </form>
     
     </div>
