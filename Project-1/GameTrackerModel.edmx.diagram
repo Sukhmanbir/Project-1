@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f0a1f4c36536471490c4f8e97da46771" Name="Diagram1">
+        <EntityTypeShape EntityType="GameTracker.Game" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GameTracker.Sport" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GameTracker.Table" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GameTracker.Team" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GameTracker.Tracker" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="GameTracker.FK__Games__TeamID__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="GameTracker.FK__Games__TeamID__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="GameTracker.FK_Game_Tracker_Cascade" ManuallyRouted="false" />
+        <AssociationConnector Association="GameTracker.FK_Games_ToTrackers" ManuallyRouted="false" />
+        <AssociationConnector Association="GameTracker.FK_Tracker_Sport_Cascade" ManuallyRouted="false" />
+        <AssociationConnector Association="GameTracker.tracker_sport_fk" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
