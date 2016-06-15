@@ -14,13 +14,11 @@
     list-style: none;
 }
 
-
-/* homepage specific */
-
-#dash-header {
-    margin: 4em 0 4em 0;
+h1 {
+    margin: 1em 0 1em 0;
 }
 
+/* homepage specific */
 #gameList ul li {
     padding: 1em;
     background: #32383e;
