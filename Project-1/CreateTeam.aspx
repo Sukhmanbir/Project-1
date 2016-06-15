@@ -1,4 +1,11 @@
-﻿<%@ Page Title="Create Team" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CreateTeam.aspx.cs" Inherits="Project_1.CreateTeams" %>
+﻿<%-- 
+    Author's Name: Douglas Brunner
+    Student Number: 020087918
+    Date Modified: June 15, 2016
+    Description: form to create a team
+    Version History: Initial Commit
+    --%>
+<%@ Page Title="Create Team" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CreateTeam.aspx.cs" Inherits="Project_1.CreateTeams" %>
 <asp:Content ID="CreateTeam" ContentPlaceHolderID="MainContent" runat="server">
     <div class="col-sm-6 col-sm-offset-3">
         <h1><span class="fa fa-users"></span> CreateTeam</h1>
