@@ -7,7 +7,7 @@
         - implemented wireframe
 --%>
 
-<%@ Page Title="Tracker" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Trackers.aspx.cs" Inherits="Project_1.Tracker" %>
+<%@ Page Title="Trackers" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Trackers.aspx.cs" Inherits="Project_1.Tracker" %>
 
 <asp:Content ID="Trackers" ContentPlaceHolderID="MainContent" runat="server">
     <h1><span class="fa fa-location-arrow"></span> Trackers <a href="CreateTracker.aspx" class="btn btn-primary pull-right">Create</a></h1>

@@ -44,17 +44,23 @@ namespace Project_1
                 case "Trackers":
                     trackers.Attributes.Add("class", "active");
                     break;
+                case "Create Tracker":
+                    trackers.Attributes.Add("class", "active");
+                    break;
                 case "Teams":
+                    teams.Attributes.Add("class", "active");
+                    break;
+                case "Create Team":
                     teams.Attributes.Add("class", "active");
                     break;
                 case "Games":
                     games.Attributes.Add("class", "active");
                     break;
-                case "Results":
-                    results.Attributes.Add("class", "active");
+                case "Create Game":
+                    games.Attributes.Add("class", "active");
                     break;
-                case "Dashboard":
-                    dashboard.Attributes.Add("class", "active");
+                case "Enter Game Results":
+                    results.Attributes.Add("class", "active");
                     break;
 
             }
