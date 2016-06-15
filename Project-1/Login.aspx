@@ -12,8 +12,8 @@
 <%@ Page Title="Login" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Project_1.Login" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="col-sm-6 col-sm-offset-3">
-        <h1><span class="fa fa-user-plus"></span> Login</h1>
-        <form action="/signup" method="post">
+        <h1><span class="fa fa-sign-in"></span> Login</h1>
+        <form action="/Login.aspx" method="post">
             <div class="form-group">
                 <label>Username</label>
                 <input type="text" class="form-control" name="text" required>

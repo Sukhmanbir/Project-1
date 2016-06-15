@@ -16,7 +16,7 @@
     <div class="col-sm-6 col-sm-offset-3">
         <h1><span class="fa fa-user-plus"></span> Login</h1>
     
-        <form action="/signup" method="post">
+        <form action="/Signup.aspx" method="post">
             <div class="form-group">
                 <label>Username</label>
                 <input type="text" class="form-control" name="text" required>
