@@ -13,10 +13,10 @@ namespace Project_1
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class enterpriseEntities : DbContext
+    public partial class DefaultConnection : DbContext
     {
-        public enterpriseEntities()
-            : base("name=enterpriseEntities")
+        public DefaultConnection()
+            : base("name=DefaultConnection")
         {
         }
     
@@ -25,6 +25,10 @@ namespace Project_1
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Game> Games { get; set; }
+        public virtual DbSet<Sport> Sports { get; set; }
+        public virtual DbSet<Table> Tables { get; set; }
+        public virtual DbSet<Team> Teams { get; set; }
         public virtual DbSet<Tracker> Trackers { get; set; }
     }
 }
