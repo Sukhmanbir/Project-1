@@ -87,12 +87,12 @@
     <Content Include="CreateTracker.aspx" />
     <Content Include="Dashboard.aspx" />
     <Content Include="Games.aspx" />
-    <Content Include="GameTrackerModel.Context.tt">
+    <Content Include="Models\GameTrackerModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>GameTrackerModel.edmx</DependentUpon>
       <LastGenOutput>GameTrackerModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="GameTrackerModel.tt">
+    <Content Include="Models\GameTrackerModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>GameTrackerModel.edmx</DependentUpon>
       <LastGenOutput>GameTrackerModel.cs</LastGenOutput>
@@ -106,11 +106,11 @@
     <Content Include="Scripts\jquery-2.2.3.min.map" />
     <Content Include="app.config" />
     <Content Include="README.md" />
-    <EntityDeploy Include="GameTrackerModel.edmx">
+    <EntityDeploy Include="Models\GameTrackerModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>GameTrackerModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="GameTrackerModel.edmx.diagram">
+    <Content Include="Models\GameTrackerModel.edmx.diagram">
       <DependentUpon>GameTrackerModel.edmx</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
@@ -200,7 +200,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Game.cs">
+    <Compile Include="Models\Game.cs">
       <DependentUpon>GameTrackerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Games.aspx.cs">
@@ -210,17 +210,17 @@
     <Compile Include="Games.aspx.designer.cs">
       <DependentUpon>Games.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GameTrackerModel.Context.cs">
+    <Compile Include="Models\GameTrackerModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GameTrackerModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="GameTrackerModel.cs">
+    <Compile Include="Models\GameTrackerModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GameTrackerModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="GameTrackerModel.Designer.cs">
+    <Compile Include="Models\GameTrackerModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GameTrackerModel.edmx</DependentUpon>
@@ -253,13 +253,13 @@
     <Compile Include="Signup.aspx.designer.cs">
       <DependentUpon>Signup.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Sport.cs">
+    <Compile Include="Models\Sport.cs">
       <DependentUpon>GameTrackerModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Table.cs">
+    <Compile Include="Models\Table.cs">
       <DependentUpon>GameTrackerModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Team.cs">
+    <Compile Include="Models\Team.cs">
       <DependentUpon>GameTrackerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Teams.aspx.cs">
@@ -269,9 +269,8 @@
     <Compile Include="Teams.aspx.designer.cs">
       <DependentUpon>Teams.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Tracker.cs">
+    <Compile Include="Models\Tracker.cs">
       <DependentUpon>GameTrackerModel.tt</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Trackers.aspx.cs">
       <DependentUpon>Trackers.aspx</DependentUpon>
