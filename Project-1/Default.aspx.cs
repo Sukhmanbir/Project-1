@@ -34,9 +34,12 @@ namespace Project_1
             //connect to EF DB
             using (DefaultConnection db = new DefaultConnection())
             {
-                
+
+                int tracker_id = Convert.ToInt32(TrackerList.SelectedValue);
+
                 //query the students table using EF and LINQ
                 var Games = (from allGames in db.Games
+                             where allGames.tracker_fk == tracker_id
                              select allGames);
                     
                 //bind the result to the GridView
