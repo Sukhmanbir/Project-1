@@ -57,27 +57,27 @@
 
                     <label class="control-label" for="TotalScoresTextBox">Total Scores of both teams</label>
                     <asp:TextBox runat="server" CssClass="form-control" ID="TotalScoresTextBox"
-                        placeholder="Total scores of both teams" required="false" TextMode="Number"></asp:TextBox>
+                        placeholder="Total scores of both teams" TextMode="Number"></asp:TextBox>
 
                     <label class="control-label" for="NumOfSpectatorsTextBox">Number of Spectators</label>
                     <asp:TextBox runat="server" CssClass="form-control" ID="NumOfSpectatorsTextBox"
-                        placeholder="Number of Spectators" required="false" TextMode="Number"></asp:TextBox>
+                        placeholder="Number of Spectators" TextMode="Number"></asp:TextBox>
 
                     <label class="control-label" for="WinningTeamTextBox">Winning Team</label>
                     <asp:TextBox runat="server" CssClass="form-control" ID="WinningTeamTextBox"
-                        placeholder="Winning Team" required="true" MaxLength="20"></asp:TextBox>
+                        placeholder="Winning Team" MaxLength="20"></asp:TextBox>
 
                      <label class="control-label" for="TeamAScoreTextBox">Team A Score</label>
                     <asp:TextBox runat="server" CssClass="form-control" ID="TeamAScoreTextBox"
-                        placeholder="Team A Score" required="false" TextMode="Number"></asp:TextBox>
+                        placeholder="Team A Score" TextMode="Number"></asp:TextBox>
 
                      <label class="control-label" for="TeamBScoreTextBox">Team B Score</label>
                     <asp:TextBox runat="server" CssClass="form-control" ID="TeamBScoreTextBox"
-                        placeholder="Team B Score" required="false" TextMode="Number"></asp:TextBox>
+                        placeholder="Team B Score" TextMode="Number"></asp:TextBox>
 
                     <label class="control-label" for="DateTextBox">Date of Game</label>
                     <asp:TextBox runat="server" CssClass="form-control" ID="DateTextBox"
-                        placeholder="Date of Game" required="false" TextMode="Date"></asp:TextBox>
+                        placeholder="Date of Game" TextMode="Date"></asp:TextBox>
 
                 </div>
                 <div class="text-right">

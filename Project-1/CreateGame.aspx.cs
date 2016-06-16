@@ -71,8 +71,9 @@ namespace Project_1
 
                     //get the current game from the EF DB
                     newGame = (from game in db.Games
-                                  where game.GameID == GameID
-                                  select game).FirstOrDefault();
+                               where game.GameID == GameID
+                               select game).FirstOrDefault();
+                }
 
                     newGame.GameName = GameNameTextBox.Text;
                     newGame.GameDesc = DescriptionTextBox.Text;
@@ -100,4 +101,3 @@ namespace Project_1
             }
         }
     }
-}
