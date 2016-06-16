@@ -35,7 +35,7 @@ namespace Project_1
             //connect to EF DB
             using (DefaultConnection db = new DefaultConnection())
             {
-                //query the students table using EF and LINQ
+                //query the trackers table using EF and LINQ
                 var Trackers = (from allTrackers in db.Trackers
                                    select allTrackers);
 
@@ -92,7 +92,7 @@ namespace Project_1
             //get the selected tracker_id using the Grid's Datakey Collection
             int tracker_id = Convert.ToInt32(TrackersGridView.DataKeys[selectedRow].Values["tracker_id"]);
 
-            //use EF to find the selected student from DB and remove it
+            //use EF to find the selected tracker from DB and remove it
             using (DefaultConnection db = new DefaultConnection())
             {
                 Models.Tracker deletedTracker = (from trackerRecords in db.Trackers
