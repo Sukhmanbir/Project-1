@@ -19,9 +19,14 @@ namespace Project_1
             if ((!IsPostBack) && (Request.QueryString.Count > 0))
             {
                 this.GetTracker();
+                
             }
+            this.GetSports();
         }
 
+        /**
+         * Populates the form with the requested tracker
+         */
         protected void GetTracker()
         {
             //populate the form with existing department data from the db
@@ -42,6 +47,23 @@ namespace Project_1
                     TrackerNameTextBox.Text = updatedTracker.name;
                     DescriptionTextBox.Text = updatedTracker.description;
                 }
+            }
+        }
+
+        protected void GetSports()
+        {
+            //connect to the EF DB
+            using (DefaultConnection db = new DefaultConnection())
+            {
+                //populate a tracker instance with the tracker_id from the URL parameter
+                var sportResults = (from sports in db.Sports
+                                    select sports).ToList();
+
+                //bind the result to the GridView
+                SportsList.DataValueField = "sport_id";
+                SportsList.DataTextField = "name";
+                SportsList.DataSource = sportResults;
+                SportsList.DataBind();
             }
         }
 
@@ -68,9 +90,11 @@ namespace Project_1
                     newTracker = (from tracker in db.Trackers
                                   where tracker.tracker_id == tracker_id
                                   select tracker).FirstOrDefault();
+                }
 
                     newTracker.name = TrackerNameTextBox.Text;
                     newTracker.description = DescriptionTextBox.Text;
+                    newTracker.sport_fk = Convert.ToInt32(SportsList.SelectedValue);
 
                     //adds new tracker to the Tracker Table collection
 
@@ -85,7 +109,7 @@ namespace Project_1
 
                     //redirect to the updated tracker table
                     Response.Redirect("~/Trackers.aspx");
-                }
+                
             }
         }
     }

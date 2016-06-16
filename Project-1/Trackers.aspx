@@ -12,31 +12,6 @@
 <asp:Content ID="Trackers" ContentPlaceHolderID="MainContent" runat="server">
     <h1><span class="fa fa-location-arrow"></span> Trackers <a href="CreateTracker.aspx" class="btn btn-primary pull-right">Create</a></h1>
 
-   <%--  <table class="table table-striped">
-        <thead>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Action</th>
-        </thead>
-        <tr>
-            <td>2016 NHL Hockey</td>
-            <td>Only tracks the games broadcast on TSN.</td>
-            <td>
-                <a class="btn btn-primary">Edit</a>
-                <a class="btn btn-danger">Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <td>2016 Indian Cricket</td>
-            <td>The best cricket in Asia, bar none.</td>
-            <td>
-
-                <a class="btn btn-primary">Edit</a>
-                <a class="btn btn-danger">Delete</a>
-            </td>
-        </tr>
-    </table>--%>
-
      <asp:GridView runat="server" ID="TrackersGridView" AutoGenerateColumns="false"
                                 CssClass="table table-striped table-bordered table-hover"
                                 DataKeyNames="tracker_id" OnRowDeleting="TrackersGridView_RowDeleting"
