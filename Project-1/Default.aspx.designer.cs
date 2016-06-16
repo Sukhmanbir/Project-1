@@ -22,12 +22,12 @@ namespace Project_1 {
         protected global::System.Web.UI.WebControls.DropDownList TrackerList;
         
         /// <summary>
-        /// GameList control.
+        /// GameDeatilsGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.BulletedList GameList;
+        protected global::System.Web.UI.WebControls.GridView GameDeatilsGridView;
     }
 }

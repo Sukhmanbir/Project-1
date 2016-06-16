@@ -30,6 +30,19 @@ namespace Project_1
          */
         protected void GetGames()
         {
+            
+            //connect to EF DB
+            using (DefaultConnection db = new DefaultConnection())
+            {
+                
+                //query the students table using EF and LINQ
+                var Games = (from allGames in db.Games
+                             select allGames);
+                    
+                //bind the result to the GridView
+                GameDeatilsGridView.DataSource = Games.AsQueryable().ToList();
+                GameDeatilsGridView.DataBind();
+            }
         }
 
         /**
