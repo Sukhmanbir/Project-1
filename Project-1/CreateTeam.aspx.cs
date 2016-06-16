@@ -30,7 +30,7 @@ namespace Project_1
             using (DefaultConnection db = new DefaultConnection())
             {
                 //populate a team instance with the TeamID from the URL parameter
-                Models.Team updatedTeam = (from team in db.Teams
+                Team updatedTeam = (from team in db.Teams
                                            where team.TeamID == TeamID
                                            select team).FirstOrDefault();
 
@@ -55,7 +55,7 @@ namespace Project_1
             using (DefaultConnection db = new DefaultConnection())
             {
                 //use team model to save the object
-                Models.Team newTeam = new Models.Team();
+                Team newTeam = new Team();
 
                 int TeamID = 0;
                 if (Request.QueryString.Count > 0)
@@ -67,6 +67,7 @@ namespace Project_1
                     newTeam = (from team in db.Teams
                                where team.TeamID == TeamID
                                select team).FirstOrDefault();
+                }
 
                     newTeam.TeamName = TeamNameTextBox.Text;
                     newTeam.TeamDesc = DescriptionTextBox.Text;
@@ -88,4 +89,3 @@ namespace Project_1
             }
         }
     }
-}

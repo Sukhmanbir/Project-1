@@ -56,7 +56,7 @@ namespace Project_1
             //use EF to find the selected team from DB and remove it
             using (DefaultConnection db = new DefaultConnection())
             {
-                Models.Team deletedTeam = (from teamRecords in db.Teams
+                Team deletedTeam = (from teamRecords in db.Teams
                                                  where teamRecords.TeamID == TeamID
                                                  select teamRecords).FirstOrDefault();
 
