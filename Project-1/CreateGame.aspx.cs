@@ -19,8 +19,13 @@ namespace Project_1
             {
                 this.GetGame();
             }
+            this.GetTeams();
+            this.GetTrackers();
         }
 
+        /**
+         * Gets a game to be played
+         */
         protected void GetGame()
         {
             //populate the form with existing department data from the db
@@ -40,15 +45,58 @@ namespace Project_1
                 {
                     GameNameTextBox.Text = updatedGame.GameName;
                     DescriptionTextBox.Text = updatedGame.GameDesc;
-                    TotalScoresTextBox.Text = Convert.ToString(updatedGame.Total_scores);
-                    NumOfSpectatorsTextBox.Text = Convert.ToString(updatedGame.Num_of_spectators);
-                    WinningTeamTextBox.Text = updatedGame.Winning_team;
-                    TeamAScoreTextBox.Text = Convert.ToString(updatedGame.TeamAScore);
-                    TeamBScoreTextBox.Text = Convert.ToString(updatedGame.TeamBScore);
                     DateTextBox.Text = updatedGame.GameDate.ToString();
                 }
             }
         }
+
+        /**
+         * Populates the team drop down lists
+         */
+        protected void GetTeams()
+        {
+
+            //connect to the EF DB
+            using (DefaultConnection db = new DefaultConnection())
+            {
+                //populate a game instance with the GameID from the URL parameter
+                var teamList = (from allTeams in db.Teams
+                                select allTeams).ToList();
+
+                //bind the result to the team lists
+                TeamAList.DataValueField = "TeamID";
+                TeamAList.DataTextField = "TeamName";
+                TeamAList.DataSource = teamList;
+                TeamAList.DataBind();
+
+                TeamBList.DataValueField = "TeamID";
+                TeamBList.DataTextField = "TeamName";
+                TeamBList.DataSource = teamList;
+                TeamBList.DataBind();
+
+            }
+
+        }
+
+        /**
+         * Gets a list of trackers
+         */
+        protected void GetTrackers()
+        {
+            //connect to the EF DB
+            using (DefaultConnection db = new DefaultConnection())
+            {
+                //populate a game instance with the GameID from the URL parameter
+                var trackers = (from allTrackers in db.Trackers
+                                select allTrackers).ToList();
+
+                //bind the result to the team lists
+                TrackerList.DataValueField = "tracker_id";
+                TrackerList.DataTextField = "name";
+                TrackerList.DataSource = trackers;
+                TrackerList.DataBind();
+            }
+         }
 
         protected void CancelButton_Click(object sender, EventArgs e)
         {
@@ -71,32 +119,32 @@ namespace Project_1
 
                     //get the current game from the EF DB
                     newGame = (from game in db.Games
-                                  where game.GameID == GameID
-                                  select game).FirstOrDefault();
+                               where game.GameID == GameID
+                               select game).FirstOrDefault();
 
-                    newGame.GameName = GameNameTextBox.Text;
-                    newGame.GameDesc = DescriptionTextBox.Text;
-                    newGame.Total_scores = Convert.ToInt32(TotalScoresTextBox.Text);
-                    newGame.Num_of_spectators = Convert.ToInt32(NumOfSpectatorsTextBox.Text);
-                    newGame.Winning_team = WinningTeamTextBox.Text;
-                    newGame.TeamAScore = Convert.ToInt32(TeamAScoreTextBox.Text);
-                    newGame.TeamBScore = Convert.ToInt32(TeamBScoreTextBox.Text);
-                    newGame.GameDate = Convert.ToDateTime(DateTextBox.Text);
-
-                    //adds new game to the Game Table collection
-
-                    //check to see if new game is being added
-                    if (GameID == 0)
-                    {
-                        db.Games.Add(newGame);
-                    }
-
-                    //save changes - run an update
-                    db.SaveChanges();
-
-                    //redirect to the updated game table
-                    Response.Redirect("~/Games.aspx");
                 }
+
+                newGame.tracker_fk = Convert.ToInt32(TrackerList.SelectedValue);
+                newGame.GameName = GameNameTextBox.Text;
+                newGame.GameDesc = DescriptionTextBox.Text;
+                newGame.TeamA = Convert.ToInt32(TeamAList.SelectedValue);
+                newGame.TeamB = Convert.ToInt32(TeamBList.SelectedValue);
+                newGame.GameDate = Convert.ToDateTime(DateTextBox.Text);
+
+                //adds new game to the Game Table collection
+
+                //check to see if new game is being added
+                if (GameID == 0)
+                {
+                    db.Games.Add(newGame);
+                }
+
+                //save changes - run an update
+                db.SaveChanges();
+
+                //redirect to the updated game table
+                Response.Redirect("~/Games.aspx");
+                
             }
         }
     }
