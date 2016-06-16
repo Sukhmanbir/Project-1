@@ -19,6 +19,7 @@ namespace Project_1.Models
         {
             this.Trackers = new HashSet<Tracker>();
             this.Trackers1 = new HashSet<Tracker>();
+            this.Games = new HashSet<Game>();
         }
     
         public int sport_id { get; set; }
@@ -28,5 +29,7 @@ namespace Project_1.Models
         public virtual ICollection<Tracker> Trackers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tracker> Trackers1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Game> Games { get; set; }
     }
 }

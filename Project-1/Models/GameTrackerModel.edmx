@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="gametrackerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="gametrackerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Games">
           <Key>
             <PropertyRef Name="GameID" />
@@ -20,6 +20,8 @@
           <Property Name="TeamB" Type="int" Nullable="false" />
           <Property Name="TeamAScore" Type="int" />
           <Property Name="TeamBScore" Type="int" />
+          <Property Name="GameDate" Type="date" />
+          <Property Name="sport_fk" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Sports">
           <Key>
@@ -65,6 +67,18 @@
             </Principal>
             <Dependent Role="Games">
               <PropertyRef Name="tracker_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Games_ToSports">
+          <End Role="Sports" Type="Self.Sports" Multiplicity="1" />
+          <End Role="Games" Type="Self.Games" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sports">
+              <PropertyRef Name="sport_id" />
+            </Principal>
+            <Dependent Role="Games">
+              <PropertyRef Name="sport_fk" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -140,6 +154,10 @@
             <End Role="Trackers" EntitySet="Trackers" />
             <End Role="Games" EntitySet="Games" />
           </AssociationSet>
+          <AssociationSet Name="FK_Games_ToSports" Association="Self.FK_Games_ToSports">
+            <End Role="Sports" EntitySet="Sports" />
+            <End Role="Games" EntitySet="Games" />
+          </AssociationSet>
           <AssociationSet Name="FK_Games_ToTrackers" Association="Self.FK_Games_ToTrackers">
             <End Role="Trackers" EntitySet="Trackers" />
             <End Role="Games" EntitySet="Games" />
@@ -161,8 +179,7 @@
             <End Role="Trackers" EntitySet="Trackers" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="gametrackerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -185,6 +202,9 @@
           <NavigationProperty Name="Tracker1" Relationship="Self.FK_Games_ToTrackers" FromRole="Games" ToRole="Trackers" />
           <NavigationProperty Name="Team" Relationship="Self.FK_GamesTeamA_ToTeam" FromRole="Games" ToRole="Teams" />
           <NavigationProperty Name="Team1" Relationship="Self.FK_GamesTeamB_ToTeam" FromRole="Games" ToRole="Teams" />
+          <Property Name="GameDate" Type="DateTime" Precision="0" />
+          <Property Name="sport_fk" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Sport" Relationship="gametrackerModel.FK_Games_ToSports" FromRole="Game" ToRole="Sport" />
         </EntityType>
         <EntityType Name="Sport">
           <Key>
@@ -194,6 +214,7 @@
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Trackers" Relationship="Self.FK_Tracker_Sport_Cascade" FromRole="Sports" ToRole="Trackers" />
           <NavigationProperty Name="Trackers1" Relationship="Self.tracker_sport_fk" FromRole="Sports" ToRole="Trackers" />
+          <NavigationProperty Name="Games" Relationship="gametrackerModel.FK_Games_ToSports" FromRole="Sport" ToRole="Game" />
         </EntityType>
         <EntityType Name="Table">
           <Key>
@@ -333,7 +354,23 @@
             <End Role="Sports" EntitySet="Sports" />
             <End Role="Trackers" EntitySet="Trackers" />
           </AssociationSet>
+          <AssociationSet Name="FK_Games_ToSports" Association="gametrackerModel.FK_Games_ToSports">
+            <End Role="Sport" EntitySet="Sports" />
+            <End Role="Game" EntitySet="Games" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Games_ToSports">
+          <End Type="gametrackerModel.Sport" Role="Sport" Multiplicity="1" />
+          <End Type="gametrackerModel.Game" Role="Game" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sport">
+              <PropertyRef Name="sport_id" />
+            </Principal>
+            <Dependent Role="Game">
+              <PropertyRef Name="sport_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -343,6 +380,8 @@
           <EntitySetMapping Name="Games">
             <EntityTypeMapping TypeName="gametrackerModel.Game">
               <MappingFragment StoreEntitySet="Games">
+                <ScalarProperty Name="sport_fk" ColumnName="sport_fk" />
+                <ScalarProperty Name="GameDate" ColumnName="GameDate" />
                 <ScalarProperty Name="GameID" ColumnName="GameID" />
                 <ScalarProperty Name="GameName" ColumnName="GameName" />
                 <ScalarProperty Name="GameDesc" ColumnName="GameDesc" />

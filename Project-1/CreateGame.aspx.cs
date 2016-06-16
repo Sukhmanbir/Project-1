@@ -45,7 +45,7 @@ namespace Project_1
                     WinningTeamTextBox.Text = updatedGame.Winning_team;
                     TeamAScoreTextBox.Text = Convert.ToString(updatedGame.TeamAScore);
                     TeamBScoreTextBox.Text = Convert.ToString(updatedGame.TeamBScore);
-                    DateTextBox.Text = updatedGame.GameDate.ToString("yyyy-MM-dd");
+                    DateTextBox.Text = updatedGame.GameDate.ToString();
                 }
             }
         }

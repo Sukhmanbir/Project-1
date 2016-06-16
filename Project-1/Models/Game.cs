@@ -25,10 +25,13 @@ namespace Project_1.Models
         public int TeamB { get; set; }
         public Nullable<int> TeamAScore { get; set; }
         public Nullable<int> TeamBScore { get; set; }
+        public Nullable<System.DateTime> GameDate { get; set; }
+        public int sport_fk { get; set; }
     
         public virtual Tracker Tracker { get; set; }
         public virtual Tracker Tracker1 { get; set; }
         public virtual Team Team { get; set; }
         public virtual Team Team1 { get; set; }
+        public virtual Sport Sport { get; set; }
     }
 }

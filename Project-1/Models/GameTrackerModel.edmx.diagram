@@ -16,6 +16,7 @@
         <AssociationConnector Association="gametrackerModel.FK_GamesTeamB_ToTeam" ManuallyRouted="false" />
         <AssociationConnector Association="gametrackerModel.FK_Tracker_Sport_Cascade" ManuallyRouted="false" />
         <AssociationConnector Association="gametrackerModel.tracker_sport_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="gametrackerModel.FK_Games_ToSports" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
