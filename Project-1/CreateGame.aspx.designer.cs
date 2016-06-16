@@ -13,6 +13,15 @@ namespace Project_1 {
     public partial class CreateGame {
         
         /// <summary>
+        /// TrackerList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList TrackerList;
+        
+        /// <summary>
         /// GameNameTextBox control.
         /// </summary>
         /// <remarks>
@@ -31,51 +40,6 @@ namespace Project_1 {
         protected global::System.Web.UI.WebControls.TextBox DescriptionTextBox;
         
         /// <summary>
-        /// TotalScoresTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TotalScoresTextBox;
-        
-        /// <summary>
-        /// NumOfSpectatorsTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NumOfSpectatorsTextBox;
-        
-        /// <summary>
-        /// WinningTeamTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox WinningTeamTextBox;
-        
-        /// <summary>
-        /// TeamAScoreTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TeamAScoreTextBox;
-        
-        /// <summary>
-        /// TeamBScoreTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TeamBScoreTextBox;
-        
-        /// <summary>
         /// DateTextBox control.
         /// </summary>
         /// <remarks>
@@ -83,6 +47,24 @@ namespace Project_1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox DateTextBox;
+        
+        /// <summary>
+        /// TeamAList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList TeamAList;
+        
+        /// <summary>
+        /// TeamBList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList TeamBList;
         
         /// <summary>
         /// CancelButton control.
