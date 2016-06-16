@@ -13,16 +13,15 @@ using System.Linq.Dynamic;
 namespace Project_1
 {
     public partial class Default : System.Web.UI.Page
-    {
+    {   
+        /**
+         * Loads the game details for the selected week
+         */
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             this.GetTrackers();
             this.GetGames();
-        }
-
-        protected void Trackers_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
         }
 
         /**
@@ -53,19 +52,22 @@ namespace Project_1
          */
         protected void GetTrackers()
         {
-            
-            //connect to EF DB
-            using (DefaultConnection db = new DefaultConnection())
-            {
-                //query the students table using EF and LINQ
-                var Trackers = (from allTrackers in db.Trackers
-                                select allTrackers).ToList();
 
-                //bind the result to the GridView
-                TrackerList.DataValueField = "tracker_id";
-                TrackerList.DataTextField = "name";
-                TrackerList.DataSource = Trackers;
-                TrackerList.DataBind();
+            if (!IsPostBack) { 
+
+                //connect to EF DB
+                using (DefaultConnection db = new DefaultConnection())
+                {
+                    //query the students table using EF and LINQ
+                    var Trackers = (from allTrackers in db.Trackers
+                                    select allTrackers).ToList();
+
+                    //bind the result to the GridView
+                    TrackerList.DataValueField = "tracker_id";
+                    TrackerList.DataTextField = "name";
+                    TrackerList.DataSource = Trackers;
+                    TrackerList.DataBind();
+                }
             }
         }
 
