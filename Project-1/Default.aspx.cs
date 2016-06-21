@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+    Author's Name: Douglas Brunner
+    Student Number: 020087918
+    Date Modified: June 20, 2016
+    Description: controls for Default.aspx
+    Version History: Initial Commit
+        - Display games according to selected tracker
+        - Display games according to date
+    */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -36,9 +45,24 @@ namespace Project_1
 
                 int tracker_id = Convert.ToInt32(TrackerList.SelectedValue);
 
+                // set the dates
+                DateTime selectedDate = DateTime.Today;
+                dateMinus3.InnerText    = selectedDate.AddDays(-3).ToString("yyyy-MM-dd");
+                dateMinus2.InnerText    = selectedDate.AddDays(-2).ToString("yyyy-MM-dd");
+                dateMinus1.InnerText    = selectedDate.AddDays(-1).ToString("yyyy-MM-dd");
+                date.InnerText          = selectedDate.ToString("yyyy-MM-dd");
+                datePlus1.InnerText     = selectedDate.AddDays(1).ToString("yyyy-MM-dd");
+                datePlus2.InnerText     = selectedDate.AddDays(2).ToString("yyyy-MM-dd");
+                datePlus3.InnerText     = selectedDate.AddDays(3).ToString("yyyy-MM-dd");
+
+                // set the range of dates to pull games from
+                DateTime weekBegin = selectedDate.AddDays(-3);
+                DateTime weekEnd = selectedDate.AddDays(3);
+
                 //query the students table using EF and LINQ
                 var Games = (from allGames in db.Games
                              where allGames.tracker_fk == tracker_id
+                             where allGames.GameDate >= weekBegin && allGames.GameDate <= weekEnd
                              select allGames);
                     
                 //bind the result to the GridView    

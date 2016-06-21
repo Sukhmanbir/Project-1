@@ -25,31 +25,31 @@
         <div class="col-xs-12 text-center">            
             <ul class="list-inline slimList">
                 <li>
-                    <p><strong>2016.09.23</strong></p>
+                    <p id="dateMinus3" runat="server"></p>
                     <a class="game btn btn-primary">&nbsp;</a>
                 </li>
                 <li>
-                    <p><strong>2016.09.23</strong></p>
+                    <p id="dateMinus2" runat="server"></p>
                     <a class="game btn btn-primary">&nbsp;</a>
                 </li>
                 <li>
-                    <p><strong>2016.09.23</strong></p>
+                    <p id="dateMinus1" runat="server"></p>
                     <a class="game btn btn-primary">&nbsp;</a>
                 </li>
                 <li class="today">
-                    <p><strong>2016.09.23</strong></p>
+                    <p id="date" runat="server"></p>
                     <a class="game btn btn-primary">&nbsp;</a>
                 </li>
                 <li>
-                    <p><strong>2016.09.23</strong></p>
+                    <p id="datePlus1" runat="server"></p>
                     <a class="game btn btn-primary">&nbsp;</a>
                 </li>
                 <li>
-                    <p><strong>2016.09.23</strong></p>
+                    <p id="datePlus2" runat="server"></p>
                     <a class="game btn btn-primary">&nbsp;</a>
                 </li>
                 <li>
-                    <p><strong>2016.09.23</strong></p>
+                    <p id="datePlus3" runat="server"></p>
                     <a class="game btn btn-primary">&nbsp;</a>
                 </li>
             </ul>
