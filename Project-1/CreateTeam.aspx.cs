@@ -27,7 +27,7 @@ namespace Project_1
             int TeamID = Convert.ToInt32(Request.QueryString["TeamID"]);
 
             //connect to the EF DB
-            using (DefaultConnection db = new DefaultConnection())
+            using (GameTrackerConnection db = new GameTrackerConnection())
             {
                 //populate a team instance with the TeamID from the URL parameter
                 Team updatedTeam = (from team in db.Teams
@@ -52,7 +52,7 @@ namespace Project_1
         protected void SaveButton_Click(object sender, EventArgs e)
         {
             //connect to the EF DB
-            using (DefaultConnection db = new DefaultConnection())
+            using (GameTrackerConnection db = new GameTrackerConnection())
             {
                 //use team model to save the object
                 Team newTeam = new Team();

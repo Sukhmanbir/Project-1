@@ -33,7 +33,7 @@ namespace Project_1
             string sortString = Session["SortColumn"].ToString() + " " + Session["SortDirection"].ToString();
 
             //connect to EF DB
-            using (DefaultConnection db = new DefaultConnection())
+            using (GameTrackerConnection db = new GameTrackerConnection())
             {
                 //query the games table using EF and LINQ
                 var Games = (from allGames in db.Games
@@ -54,7 +54,7 @@ namespace Project_1
             int GameID = Convert.ToInt32(GamesGridView.DataKeys[selectedRow].Values["GameID"]);
 
             //use EF to find the selected game from DB and remove it
-            using (DefaultConnection db = new DefaultConnection())
+            using (GameTrackerConnection db = new GameTrackerConnection())
             {
                 Models.Game deletedGame = (from gameRecords in db.Games
                                                  where gameRecords.GameID == GameID

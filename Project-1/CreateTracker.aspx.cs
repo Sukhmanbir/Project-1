@@ -33,7 +33,7 @@ namespace Project_1
             int tracker_id = Convert.ToInt32(Request.QueryString["tracker_id"]);
 
             //connect to the EF DB
-            using (DefaultConnection db = new DefaultConnection())
+            using (GameTrackerConnection db = new GameTrackerConnection())
             {
                 //populate a tracker instance with the tracker_id from the URL parameter
                 Models.Tracker updatedTracker = (from tracker in db.Trackers
@@ -53,7 +53,7 @@ namespace Project_1
         protected void GetSports()
         {
             //connect to the EF DB
-            using (DefaultConnection db = new DefaultConnection())
+            using (GameTrackerConnection db = new GameTrackerConnection())
             {
                 //populate a tracker instance with the tracker_id from the URL parameter
                 var sportResults = (from sports in db.Sports
@@ -75,7 +75,7 @@ namespace Project_1
         protected void SaveButton_Click(object sender, EventArgs e)
         {
             //connect to the EF DB
-            using (DefaultConnection db = new DefaultConnection())
+            using (GameTrackerConnection db = new GameTrackerConnection())
             {
                 //use tracker model to save the object
                 Models.Tracker newTracker = new Models.Tracker();
