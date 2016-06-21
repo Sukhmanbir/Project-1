@@ -49,13 +49,13 @@ namespace Project_1 {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl dateMinus1;
         
         /// <summary>
-        /// date control.
+        /// gameDateText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl date;
+        protected global::System.Web.UI.WebControls.TextBox gameDateText;
         
         /// <summary>
         /// datePlus1 control.

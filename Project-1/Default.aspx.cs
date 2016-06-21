@@ -43,14 +43,28 @@ namespace Project_1
             using (DefaultConnection db = new DefaultConnection())
             {
 
+                // get control values
                 int tracker_id = Convert.ToInt32(TrackerList.SelectedValue);
 
+                // holds the selected date
+                DateTime selectedDate;
+
+                // set the selected date to today if it hasn't already been set
+                if (gameDateText.Text.Equals(""))
+                {
+                    selectedDate = DateTime.Today;
+                    gameDateText.Text = selectedDate.ToString("yyyy-MM-dd");
+                } else
+                {
+                    selectedDate = Convert.ToDateTime(gameDateText.Text.ToString());
+                }
+
                 // set the dates
-                DateTime selectedDate = DateTime.Today;
+                
                 dateMinus3.InnerText    = selectedDate.AddDays(-3).ToString("yyyy-MM-dd");
                 dateMinus2.InnerText    = selectedDate.AddDays(-2).ToString("yyyy-MM-dd");
                 dateMinus1.InnerText    = selectedDate.AddDays(-1).ToString("yyyy-MM-dd");
-                date.InnerText          = selectedDate.ToString("yyyy-MM-dd");
+                
                 datePlus1.InnerText     = selectedDate.AddDays(1).ToString("yyyy-MM-dd");
                 datePlus2.InnerText     = selectedDate.AddDays(2).ToString("yyyy-MM-dd");
                 datePlus3.InnerText     = selectedDate.AddDays(3).ToString("yyyy-MM-dd");
@@ -70,7 +84,7 @@ namespace Project_1
                 GameDeatilsGridView.DataBind();
             }
         }
-
+        
         /**
          * Gets the list of trackers from the database
          */

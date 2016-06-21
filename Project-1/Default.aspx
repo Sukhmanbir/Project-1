@@ -26,31 +26,26 @@
             <ul class="list-inline slimList">
                 <li>
                     <p id="dateMinus3" runat="server"></p>
-                    <a class="game btn btn-primary">&nbsp;</a>
                 </li>
                 <li>
                     <p id="dateMinus2" runat="server"></p>
-                    <a class="game btn btn-primary">&nbsp;</a>
                 </li>
                 <li>
                     <p id="dateMinus1" runat="server"></p>
-                    <a class="game btn btn-primary">&nbsp;</a>
                 </li>
                 <li class="today">
-                    <p id="date" runat="server"></p>
-                    <a class="game btn btn-primary">&nbsp;</a>
+                    <p>Selected Date</p>
+                    <asp:TextBox runat="server" CssClass="form-control" id="gameDateText" placeholder="yyyy-mm-dd" required="true" TextMode="Date"></asp:TextBox>
+                    <button class="btn btn-primary">GO</button>
                 </li>
                 <li>
                     <p id="datePlus1" runat="server"></p>
-                    <a class="game btn btn-primary">&nbsp;</a>
                 </li>
                 <li>
                     <p id="datePlus2" runat="server"></p>
-                    <a class="game btn btn-primary">&nbsp;</a>
                 </li>
                 <li>
                     <p id="datePlus3" runat="server"></p>
-                    <a class="game btn btn-primary">&nbsp;</a>
                 </li>
             </ul>
         </div>
