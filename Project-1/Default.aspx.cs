@@ -40,7 +40,7 @@ namespace Project_1
         {
             
             //connect to EF DB
-            using (DefaultConnection db = new DefaultConnection())
+            using (GameTrackerConnection db = new GameTrackerConnection())
             {
 
                 int tracker_id = Convert.ToInt32(TrackerList.SelectedValue);
@@ -80,7 +80,7 @@ namespace Project_1
             if (!IsPostBack) { 
 
                 //connect to EF DB
-                using (DefaultConnection db = new DefaultConnection())
+                using (GameTrackerConnection db = new GameTrackerConnection())
                 {
                     //query the students table using EF and LINQ
                     var Trackers = (from allTrackers in db.Trackers

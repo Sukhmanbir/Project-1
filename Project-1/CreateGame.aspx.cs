@@ -32,7 +32,7 @@ namespace Project_1
             int GameID = Convert.ToInt32(Request.QueryString["GameID"]);
 
             //connect to the EF DB
-            using (DefaultConnection db = new DefaultConnection())
+            using (GameTrackerConnection db = new GameTrackerConnection())
             {
                 //populate a game instance with the GameID from the URL parameter
                 Models.Game updatedGame = (from game in db.Games
@@ -57,7 +57,7 @@ namespace Project_1
         {
 
             //connect to the EF DB
-            using (DefaultConnection db = new DefaultConnection())
+            using (GameTrackerConnection db = new GameTrackerConnection())
             {
                 //populate a game instance with the GameID from the URL parameter
                 var teamList = (from allTeams in db.Teams
@@ -84,7 +84,7 @@ namespace Project_1
         protected void GetTrackers()
         {
             //connect to the EF DB
-            using (DefaultConnection db = new DefaultConnection())
+            using (GameTrackerConnection db = new GameTrackerConnection())
             {
                 //populate a game instance with the GameID from the URL parameter
                 var trackers = (from allTrackers in db.Trackers
@@ -106,7 +106,7 @@ namespace Project_1
         protected void SaveButton_Click(object sender, EventArgs e)
         {
             //connect to the EF DB
-            using (DefaultConnection db = new DefaultConnection())
+            using (GameTrackerConnection db = new GameTrackerConnection())
             {
                 //use game model to save the object
                 Models.Game newGame = new Models.Game();

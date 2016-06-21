@@ -33,7 +33,7 @@ namespace Project_1
             string sortString = Session["SortColumn"].ToString() + " " + Session["SortDirection"].ToString();
 
             //connect to EF DB
-            using (DefaultConnection db = new DefaultConnection())
+            using (GameTrackerConnection db = new GameTrackerConnection())
             {
                 //query the trackers table using EF and LINQ
                 var Trackers = (from allTrackers in db.Trackers
@@ -93,7 +93,7 @@ namespace Project_1
             int tracker_id = Convert.ToInt32(TrackersGridView.DataKeys[selectedRow].Values["tracker_id"]);
 
             //use EF to find the selected tracker from DB and remove it
-            using (DefaultConnection db = new DefaultConnection())
+            using (GameTrackerConnection db = new GameTrackerConnection())
             {
                 Models.Tracker deletedTracker = (from trackerRecords in db.Trackers
                                                 where trackerRecords.tracker_id == tracker_id
