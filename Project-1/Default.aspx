@@ -8,6 +8,7 @@
     History: Initial commit
     Modified: 2016-06-13
         - Implemented wireframe
+        - Showed weekly dates as selected by user
 
 --%>
 <%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Project_1.Default" %>

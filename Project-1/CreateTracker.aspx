@@ -4,6 +4,7 @@
     Date Modified: June 15, 2016
     Description: form to create a tracker
     Version History: Initial Commit
+        -- Added validation
     --%>
 <%@ Page Title="Create Tracker" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CreateTracker.aspx.cs" Inherits="Project_1.CreateTracker" %>
 <asp:Content ID="CreateTracker" ContentPlaceHolderID="MainContent" runat="server">

@@ -4,6 +4,7 @@
     Date Modified: June 15, 2016
     Description: form to create a team
     Version History: Initial Commit
+        -- Added validation
     --%>
 <%@ Page Title="Create Team" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CreateTeam.aspx.cs" Inherits="Project_1.CreateTeams" %>
 <asp:Content ID="CreateTeam" ContentPlaceHolderID="MainContent" runat="server">
