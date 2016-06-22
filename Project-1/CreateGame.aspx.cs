@@ -15,11 +15,18 @@ namespace Project_1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // we are showing the information for an already existing game
             if ((!IsPostBack) && (Request.QueryString.Count > 0))
             {
                 this.GetTrackers();
                 this.GetTeams();
                 this.GetGame();
+            
+            // we are showing the default selection of trackers and teams
+            } else
+            {
+                this.GetTrackers();
+                this.GetTeams();
             }
         }
 
