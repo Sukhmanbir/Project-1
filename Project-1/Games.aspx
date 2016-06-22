@@ -19,10 +19,6 @@
                 <asp:BoundField DataField="GameID" HeaderText="Game ID" Visible="true" SortExpression="GameID" />
                 <asp:BoundField DataField="GameName" HeaderText="Name" Visible="true" SortExpression="GameName" />
                 <asp:BoundField DataField="GameDesc" HeaderText="Description" Visible="true" SortExpression="GameDesc" />
-                <asp:BoundField DataField="sport_fk" HeaderText="Sport" Visible="true" SortExpression="sport_fk" />
-                <asp:BoundField DataField="Num_of_spectators" HeaderText="Spectators" Visible="true" SortExpression="Num_of_spectators" />
-                <asp:BoundField DataField="Total_scores" HeaderText="Score" Visible="true" SortExpression="Total_scores" />
-                <asp:BoundField DataField="Winning_team" HeaderText="Winner" Visible="true" SortExpression="Winning_team" />
                 <asp:BoundField DataField="GameDate" HeaderText="Date" Visible="true" SortExpression="GameDate" DataFormatString="{0:yyyy-MM-dd}" />
                         
                 <asp:HyperLinkField HeaderText="Edit" Text="<i class='fa fa-pencil-square-o fa-lg'></i> Edit" NavigateUrl="~/CreateGame.aspx"
