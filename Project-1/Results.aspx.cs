@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+    Author's Name: Douglas Brunner
+    Student Number: 020087918
+    Date Modified: June 22, 2016
+    Description: Codebehind for Results.aspx
+    Version History: Initial Commit
+        - Display correct team information when tracker/games are changed
+    */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
