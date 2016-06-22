@@ -113,17 +113,30 @@ namespace Project_1
 
         protected void RecordButton_Click(object sender, EventArgs e)
         {
+
+            // get the game id
+            int gameID = Convert.ToInt32(GameList.SelectedValue);
+
             //connect to the EF DB
             using (GameTrackerConnection db = new GameTrackerConnection())
             {
                 //use tracker model to save the object
                 Models.Game game = new Models.Game();
 
+                game = (from storedGame in db.Games
+                              where storedGame.GameID == gameID
+                        select storedGame).FirstOrDefault();
+
+                // obtain/calculate information
+                int TeamAScore = Convert.ToInt32(TeamAScoreTextBox.Text);
+                int TeamBScore = Convert.ToInt32(TeamBScoreTextBox.Text);
+
                 // add the new information
                 game.Num_of_spectators = Convert.ToInt32(SpectatorTextbox.Text);
-                game.TeamAScore = Convert.ToInt32(TeamAScoreTextBox.Text);
-                game.TeamBScore = Convert.ToInt32(TeamBScoreTextBox.Text);
-
+                game.TeamAScore = TeamAScore;
+                game.TeamBScore = TeamBScore;
+                game.Total_scores = TeamAScore + TeamBScore;
+                
                 //save changes - run an update
                 db.SaveChanges();
 
