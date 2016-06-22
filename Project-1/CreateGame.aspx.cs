@@ -23,7 +23,7 @@ namespace Project_1
                 this.GetGame();
             
             // we are showing the default selection of trackers and teams
-            } else
+            } else if (!IsPostBack)
             {
                 this.GetTrackers();
                 this.GetTeams();
