@@ -15,18 +15,20 @@
     <div class="row">
         <div class="col-xs-12 col-sm-6">
             <label>Tracker</label>
-            <asp:DropDownList ID="TrackerList" runat="server" AutoPostBack="true" CssClass="form-control dropdown-toggle" />
+            <asp:DropDownList ID="TrackerList" runat="server" AutoPostBack="true" CssClass="form-control dropdown-toggle"
+                OnSelectedIndexChanged="TrackerList_SelectedIndexChanged" />
         </div>
         <div class="col-xs-12 col-sm-6">
             <label>Game</label>
-            <asp:DropDownList ID="GameList" runat="server" AutoPostBack="true" CssClass="form-control dropdown-toggle" />
+            <asp:DropDownList ID="GameList" runat="server" AutoPostBack="true" CssClass="form-control dropdown-toggle"
+                OnSelectedIndexChanged="GameList_SelectedIndexChanged" />
         </div>
     </div>
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
             <h2>Game Details</h2>
             <div class="form-group">
-                <label>Score for Toronto Maple Leafs</label>
+                <asp:Label runat="server" ID="TeamALabel" Text="Team A"></asp:Label>
                 <asp:TextBox runat="server" CssClass="form-control" ID="TeamAScoreTextBox"
                 placeholder="Team A Score" required="true"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="teamAScoreValidator" runat="server" 
@@ -35,7 +37,7 @@
                     Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
             <div class="form-group">
-                <label>Score for Ottawa Senators</label>
+                <asp:Label runat="server" ID="TeamBLabel" Text="Team B"></asp:Label>
                 <asp:TextBox runat="server" CssClass="form-control" ID="TeamBScoreTextBox"
                 placeholder="Team B Score" required="true"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="teamBScoreValidator" runat="server" 

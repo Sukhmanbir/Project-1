@@ -14,32 +14,32 @@ namespace Project_1
 {
     public partial class Results : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            // load the trackers
-            this.GetTrackers();
-            this.GetGames();
+            if (!IsPostBack)
+            {
+                // load the trackers
+                this.GetTrackers();
+                this.GetGames();
+                this.updateNames();
+            }
         }
 
         protected void GetTrackers()
         {
-
-            if (!IsPostBack)
+            //connect to EF DB
+            using (GameTrackerConnection db = new GameTrackerConnection())
             {
+                //query the students table using EF and LINQ
+                var Trackers = (from allTrackers in db.Trackers
+                                select allTrackers).ToList();
 
-                //connect to EF DB
-                using (GameTrackerConnection db = new GameTrackerConnection())
-                {
-                    //query the students table using EF and LINQ
-                    var Trackers = (from allTrackers in db.Trackers
-                                    select allTrackers).ToList();
-
-                    //bind the result to the GridView
-                    TrackerList.DataValueField = "tracker_id";
-                    TrackerList.DataTextField = "name";
-                    TrackerList.DataSource = Trackers;
-                    TrackerList.DataBind();
-                }
+                //bind the result to the GridView
+                TrackerList.DataValueField = "tracker_id";
+                TrackerList.DataTextField = "name";
+                TrackerList.DataSource = Trackers;
+                TrackerList.DataBind();
             }
         }
 
@@ -63,7 +63,44 @@ namespace Project_1
                 GameList.DataSource = Games;
                 GameList.DataBind();
             }
+
+            updateNames();
+
         }
 
+        protected void GameList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateNames();
+        }
+
+        private void updateNames()
+        {
+            // get the ID of the selected game
+            int gameID = Convert.ToInt32(GameList.SelectedValue);
+
+            //connect to EF DB
+            using (GameTrackerConnection db = new GameTrackerConnection())
+            {
+
+                // get teamA name
+                var teamA_Name = (from team in db.Teams
+                                  where team.TeamID == (from games in db.Games where games.GameID == gameID select games.TeamA).FirstOrDefault()
+                                  select team.TeamName).FirstOrDefault();
+
+                // get teamA name
+                var teamB_Name = (from team in db.Teams
+                                  where team.TeamID == (from games in db.Games where games.GameID == gameID select games.TeamB).FirstOrDefault()
+                                  select team.TeamName).FirstOrDefault();
+
+                // change the team names
+                TeamALabel.Text = teamA_Name.ToString();
+                TeamBLabel.Text = teamB_Name.ToString();
+            }
+        }
+
+        protected void TrackerList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.GetGames();
+        }
     }
 }
