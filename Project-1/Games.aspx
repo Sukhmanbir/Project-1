@@ -23,7 +23,7 @@
                 <asp:BoundField DataField="Num_of_spectators" HeaderText="Spectators" Visible="true" SortExpression="Num_of_spectators" />
                 <asp:BoundField DataField="Total_scores" HeaderText="Score" Visible="true" SortExpression="Total_scores" />
                 <asp:BoundField DataField="Winning_team" HeaderText="Winner" Visible="true" SortExpression="Winning_team" />
-                <asp:BoundField DataField="GameDate" HeaderText="Date" Visible="true" SortExpression="GameDate" />
+                <asp:BoundField DataField="GameDate" HeaderText="Date" Visible="true" SortExpression="GameDate" DataFormatString="{0:yyyy-MM-dd}" />
                         
                 <asp:HyperLinkField HeaderText="Edit" Text="<i class='fa fa-pencil-square-o fa-lg'></i> Edit" NavigateUrl="~/CreateGame.aspx"
                     DataNavigateUrlFields="GameID" DataNavigateUrlFormatString="CreateGame.aspx?GameID={0}" 
