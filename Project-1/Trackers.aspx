@@ -18,7 +18,7 @@
                                 AllowSorting="true" OnSorting="TrackersGridView_Sorting" OnRowDataBound="TrackersGridView_RowDataBound">
                     <Columns>
                         <asp:BoundField DataField="tracker_id" HeaderText="Tracker ID" Visible="true" SortExpression="tracker_id" />
-                        <asp:BoundField DataField="name" HeaderText="Name" Visible="true" SortExpression="name" />
+                        <asp:BoundField DataField="name" ID="nameTextBox" HeaderText="Name" Visible="true" SortExpression="name" />
                         <asp:BoundField DataField="description" HeaderText="Description" Visible="true" SortExpression="description" />
                         
                         <asp:HyperLinkField HeaderText="Edit" Text="<i class='fa fa-pencil-square-o fa-lg'></i> Edit" NavigateUrl="~/CreateTracker.aspx"
