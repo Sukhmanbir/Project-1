@@ -62,7 +62,9 @@ namespace Project_1
                 case "Enter Game Results":
                     results.Attributes.Add("class", "active");
                     break;
-
+                case "Logout":
+                    logout.Attributes.Add("class", "active");
+                    break;
             }
         }
     }
