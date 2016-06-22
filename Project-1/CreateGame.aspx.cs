@@ -17,10 +17,10 @@ namespace Project_1
         {
             if ((!IsPostBack) && (Request.QueryString.Count > 0))
             {
+                this.GetTrackers();
+                this.GetTeams();
                 this.GetGame();
             }
-            this.GetTeams();
-            this.GetTrackers();
         }
 
         /**
@@ -43,9 +43,12 @@ namespace Project_1
                 //map the department properties to the form controls
                 if (updatedGame != null)
                 {
+                    TrackerList.SelectedValue = updatedGame.tracker_fk.ToString();
                     GameNameTextBox.Text = updatedGame.GameName;
                     DescriptionTextBox.Text = updatedGame.GameDesc;
                     DateTextBox.Text = updatedGame.GameDate.ToString();
+                    TeamAList.SelectedValue = updatedGame.TeamA.ToString();
+                    TeamBList.SelectedValue = updatedGame.TeamB.ToString();
                 }
             }
         }
