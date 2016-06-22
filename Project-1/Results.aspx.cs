@@ -110,5 +110,26 @@ namespace Project_1
         {
             this.GetGames();
         }
+
+        protected void RecordButton_Click(object sender, EventArgs e)
+        {
+            //connect to the EF DB
+            using (GameTrackerConnection db = new GameTrackerConnection())
+            {
+                //use tracker model to save the object
+                Models.Game game = new Models.Game();
+
+                // add the new information
+                game.Num_of_spectators = Convert.ToInt32(SpectatorTextbox.Text);
+                game.TeamAScore = Convert.ToInt32(TeamAScoreTextBox.Text);
+                game.TeamBScore = Convert.ToInt32(TeamBScoreTextBox.Text);
+
+                //save changes - run an update
+                db.SaveChanges();
+
+                //redirect to the updated tracker table
+                Response.Redirect("~/Games.aspx");
+            }
+        }
     }
 }

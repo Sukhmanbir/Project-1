@@ -54,7 +54,7 @@
                     ControlToValidate="SpectatorTextbox"
                     Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
-            <asp:Button Text="Record Results" ID="RecordButton" runat="server" CssClass="btn btn-primary btn-lg" CausesValidation="true" />
+            <asp:Button Text="Record Results" ID="RecordButton" runat="server" CssClass="btn btn-primary btn-lg" CausesValidation="true" OnClick="RecordButton_Click" />
             <a href="Default.aspx" type="submit" class="btn btn-warning btn-lg">Cancel</a>
         </div>
     </div>
