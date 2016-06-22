@@ -5,6 +5,7 @@
     Description: shows the results of the games
     Version History: Initial Commit
         -- implemented wireframe
+        -- added validators
 --%>
 
 <%@ Page Title="Enter Game Results" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Results.aspx.cs" Inherits="Project_1.Results" %>
@@ -26,17 +27,32 @@
             <h2>Game Details</h2>
             <div class="form-group">
                 <label>Score for Toronto Maple Leafs</label>
-                <input type="text" class="form-control" name="teama" required>
+                <asp:TextBox runat="server" CssClass="form-control" ID="TeamAScoreTextBox"
+                placeholder="Team A Score" required="true"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="teamAScoreValidator" runat="server" 
+                    ErrorMessage="Please enter a score for team A" 
+                    ControlToValidate="TeamAScoreTextBox"
+                    Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
             <div class="form-group">
                 <label>Score for Ottawa Senators</label>
-                <input type="text" class="form-control" name="teamb" required>
+                <asp:TextBox runat="server" CssClass="form-control" ID="TeamBScoreTextBox"
+                placeholder="Team B Score" required="true"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="teamBScoreValidator" runat="server" 
+                    ErrorMessage="Please enter a score for team B" 
+                    ControlToValidate="TeamBScoreTextBox"
+                    Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
             <div class="form-group">
                 <label>Spectators</label>
-                <input type="text" class="form-control" name="spectators" required>
+                <asp:TextBox runat="server" CssClass="form-control" ID="SpectatorTextbox"
+                placeholder="Total Spectators Present" required="true"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="spectatorValidator" runat="server" 
+                    ErrorMessage="Please enter a total spectators present" 
+                    ControlToValidate="SpectatorTextbox"
+                    Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
-            <button type="submit" class="btn btn-primary btn-lg">Record Results</button>
+            <asp:Button Text="Record Results" ID="RecordButton" runat="server" CssClass="btn btn-primary btn-lg" CausesValidation="true" />
             <a href="Default.aspx" type="submit" class="btn btn-warning btn-lg">Cancel</a>
         </div>
     </div>
