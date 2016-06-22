@@ -5,6 +5,7 @@
     Description: shows the results of the games
     Version History: Initial Commit
         -- implemented wireframe
+        -- added validators
 --%>
 
 <%@ Page Title="Enter Game Results" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Results.aspx.cs" Inherits="Project_1.Results" %>
@@ -14,36 +15,45 @@
     <div class="row">
         <div class="col-xs-12 col-sm-6">
             <label>Tracker</label>
-            <select class="form-control">
-                <option>2016 NHL Hockey</option>
-            </select>
+            <asp:DropDownList ID="TrackerList" runat="server" AutoPostBack="true" CssClass="form-control dropdown-toggle" />
         </div>
         <div class="col-xs-12 col-sm-6">
             <label>Game</label>
-            <select class="form-control">
-                <option>Toronto Maple Leafs vs Ottawa Senators - 2016.09.15</option>
-            </select>
+            <asp:DropDownList ID="GameList" runat="server" AutoPostBack="true" CssClass="form-control dropdown-toggle" />
         </div>
     </div>
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
             <h2>Game Details</h2>
-            <form action="/CreateTracker.aspx" method="post">
-                <div class="form-group">
-                    <label>Score for Toronto Maple Leafs</label>
-                    <input type="text" class="form-control" name="teama" required>
-                </div>
-                <div class="form-group">
-                    <label>Score for Ottawa Senators</label>
-                    <input type="text" class="form-control" name="teamb" required>
-                </div>
-                <div class="form-group">
-                    <label>Spectators</label>
-                    <input type="text" class="form-control" name="spectators" required>
-                </div>
-                <button type="submit" class="btn btn-primary btn-lg">Record Results</button>
-                <button type="submit" class="btn btn-warning btn-lg">Cancel</button>
-            </form>
+            <div class="form-group">
+                <label>Score for Toronto Maple Leafs</label>
+                <asp:TextBox runat="server" CssClass="form-control" ID="TeamAScoreTextBox"
+                placeholder="Team A Score" required="true"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="teamAScoreValidator" runat="server" 
+                    ErrorMessage="Please enter a score for team A" 
+                    ControlToValidate="TeamAScoreTextBox"
+                    Display="Dynamic"></asp:RequiredFieldValidator>
+            </div>
+            <div class="form-group">
+                <label>Score for Ottawa Senators</label>
+                <asp:TextBox runat="server" CssClass="form-control" ID="TeamBScoreTextBox"
+                placeholder="Team B Score" required="true"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="teamBScoreValidator" runat="server" 
+                    ErrorMessage="Please enter a score for team B" 
+                    ControlToValidate="TeamBScoreTextBox"
+                    Display="Dynamic"></asp:RequiredFieldValidator>
+            </div>
+            <div class="form-group">
+                <label>Spectators</label>
+                <asp:TextBox runat="server" CssClass="form-control" ID="SpectatorTextbox"
+                placeholder="Total Spectators Present" required="true"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="spectatorValidator" runat="server" 
+                    ErrorMessage="Please enter a total spectators present" 
+                    ControlToValidate="SpectatorTextbox"
+                    Display="Dynamic"></asp:RequiredFieldValidator>
+            </div>
+            <asp:Button Text="Record Results" ID="RecordButton" runat="server" CssClass="btn btn-primary btn-lg" CausesValidation="true" />
+            <a href="Default.aspx" type="submit" class="btn btn-warning btn-lg">Cancel</a>
         </div>
     </div>
 </asp:Content>

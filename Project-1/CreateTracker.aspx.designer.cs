@@ -22,6 +22,15 @@ namespace Project_1 {
         protected global::System.Web.UI.WebControls.TextBox TrackerNameTextBox;
         
         /// <summary>
+        /// nameValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator nameValidator;
+        
+        /// <summary>
         /// DescriptionTextBox control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace Project_1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox DescriptionTextBox;
+        
+        /// <summary>
+        /// descValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator descValidator;
         
         /// <summary>
         /// SportsList control.

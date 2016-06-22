@@ -15,12 +15,19 @@ namespace Project_1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // we are showing the information for an already existing game
             if ((!IsPostBack) && (Request.QueryString.Count > 0))
             {
+                this.GetTrackers();
+                this.GetTeams();
                 this.GetGame();
+            
+            // we are showing the default selection of trackers and teams
+            } else if (!IsPostBack)
+            {
+                this.GetTrackers();
+                this.GetTeams();
             }
-            this.GetTeams();
-            this.GetTrackers();
         }
 
         /**
@@ -43,9 +50,12 @@ namespace Project_1
                 //map the department properties to the form controls
                 if (updatedGame != null)
                 {
+                    TrackerList.SelectedValue = updatedGame.tracker_fk.ToString();
                     GameNameTextBox.Text = updatedGame.GameName;
                     DescriptionTextBox.Text = updatedGame.GameDesc;
                     DateTextBox.Text = updatedGame.GameDate.ToString();
+                    TeamAList.SelectedValue = updatedGame.TeamA.ToString();
+                    TeamBList.SelectedValue = updatedGame.TeamB.ToString();
                 }
             }
         }
