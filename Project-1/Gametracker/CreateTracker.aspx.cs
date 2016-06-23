@@ -69,7 +69,7 @@ namespace Project_1
 
         protected void CancelButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Trackers.aspx");
+            Response.Redirect("~/Gametracker/Trackers.aspx");
         }
 
         protected void SaveButton_Click(object sender, EventArgs e)
@@ -108,7 +108,7 @@ namespace Project_1
                     db.SaveChanges();
 
                     //redirect to the updated tracker table
-                    Response.Redirect("~/Trackers.aspx");
+                    Response.Redirect("~/Gametracker/Trackers.aspx");
                 
             }
         }

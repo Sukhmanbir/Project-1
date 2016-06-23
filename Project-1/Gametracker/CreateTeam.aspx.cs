@@ -46,7 +46,7 @@ namespace Project_1
 
         protected void CancelButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Teams.aspx");
+            Response.Redirect("~/Gametracker/Teams.aspx");
         }
 
         protected void SaveButton_Click(object sender, EventArgs e)
@@ -84,7 +84,7 @@ namespace Project_1
                     db.SaveChanges();
 
                     //redirect to the updated team table
-                    Response.Redirect("~/Teams.aspx");
+                    Response.Redirect("~/Gametracker/Teams.aspx");
                 }
             }
         }

@@ -110,7 +110,7 @@ namespace Project_1
 
         protected void CancelButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Games.aspx");
+            Response.Redirect("~/Gametracker/Games.aspx");
         }
 
         protected void SaveButton_Click(object sender, EventArgs e)
@@ -153,7 +153,7 @@ namespace Project_1
                 db.SaveChanges();
 
                 //redirect to the updated game table
-                Response.Redirect("~/Games.aspx");
+                Response.Redirect("~/Gametracker/Games.aspx");
                 
             }
         }

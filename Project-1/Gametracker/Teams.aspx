@@ -11,7 +11,7 @@
 --%>
 <%@ Page Title="Teams" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Teams.aspx.cs" Inherits="Project_1.Teams" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <h1><span class="fa fa-users"></span> Teams <a href="CreateTeam.aspx" class="btn btn-primary pull-right">Create</a></h1>
+    <h1><span class="fa fa-users"></span> Teams <a href="/Gametracker/CreateTeam.aspx" class="btn btn-primary pull-right">Create</a></h1>
 
     <%--<table class="table table-striped">
         <thead>
@@ -40,7 +40,7 @@
                         <asp:BoundField DataField="TeamName" HeaderText="Name" Visible="true" SortExpression="TeamName" />
                         <asp:BoundField DataField="TeamDesc" HeaderText="Description" Visible="true" SortExpression="TeamDesc" />
                         
-                        <asp:HyperLinkField HeaderText="Edit" Text="<i class='fa fa-pencil-square-o fa-lg'></i> Edit" NavigateUrl="~/CreateTeam.aspx"
+                        <asp:HyperLinkField HeaderText="Edit" Text="<i class='fa fa-pencil-square-o fa-lg'></i> Edit" NavigateUrl="~/Gametracker/CreateTeam.aspx"
                             DataNavigateUrlFields="TeamID" DataNavigateUrlFormatString="CreateTeam.aspx?TeamID={0}" 
                             ItemStyle-CssClass="btn btn-primary btn-sm" ControlStyle-ForeColor="White" />
 

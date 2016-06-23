@@ -5,6 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+//required for identity and OWIN security
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security;
+
 /**
  * @author: Tom Tsiliopoulos
  * @date: May 26, 2016
@@ -17,7 +22,23 @@ namespace Project_1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SetActivePage();
+            if(!IsPostBack)
+            {
+                //check if the user is logged in
+                if(HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+                    //show the game tracker content area
+                    GametrackerPlaceHolder.Visible = true;
+                    PublicPlaceHolder.Visible = false;
+                }
+                else
+                {
+                    //only show login and signup
+                    GametrackerPlaceHolder.Visible = false;
+                    PublicPlaceHolder.Visible = true;
+                }
+                SetActivePage();
+            }
         }
 
         /**

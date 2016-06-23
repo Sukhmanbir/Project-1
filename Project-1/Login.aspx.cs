@@ -40,7 +40,7 @@ namespace Project_1
                 authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, userIdentity);
 
                 //redirect to the dashboard
-                Response.Redirect("~/Dashboard.aspx");
+                Response.Redirect("/Gametracker/Dashboard.aspx");
             }
             else
             {

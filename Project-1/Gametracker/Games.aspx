@@ -9,7 +9,7 @@
 
 <%@ Page Title="Games" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Games.aspx.cs" Inherits="Project_1.Games" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <h1><span class="fa fa-trophy"></span> Games <a href="CreateGame.aspx" class="btn btn-primary pull-right">Create</a></h1>
+    <h1><span class="fa fa-trophy"></span> Games <a href="/Gametracker/CreateGame.aspx" class="btn btn-primary pull-right">Create</a></h1>
 
     <asp:GridView runat="server" ID="GamesGridView" AutoGenerateColumns="false"
                         CssClass="table table-striped table-bordered table-hover"
@@ -21,7 +21,7 @@
                 <asp:BoundField DataField="GameDesc" HeaderText="Description" Visible="true" SortExpression="GameDesc" />
                 <asp:BoundField DataField="GameDate" HeaderText="Date" Visible="true" SortExpression="GameDate" DataFormatString="{0:yyyy-MM-dd}" />
                         
-                <asp:HyperLinkField HeaderText="Edit" Text="<i class='fa fa-pencil-square-o fa-lg'></i> Edit" NavigateUrl="~/CreateGame.aspx"
+                <asp:HyperLinkField HeaderText="Edit" Text="<i class='fa fa-pencil-square-o fa-lg'></i> Edit" NavigateUrl="~/Gametracker/CreateGame.aspx"
                     DataNavigateUrlFields="GameID" DataNavigateUrlFormatString="CreateGame.aspx?GameID={0}" 
                     ItemStyle-CssClass="btn btn-primary btn-sm" ControlStyle-ForeColor="White" />
 

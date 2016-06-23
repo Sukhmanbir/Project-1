@@ -22,6 +22,15 @@ namespace Project_1 {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl home;
         
         /// <summary>
+        /// PublicPlaceHolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder PublicPlaceHolder;
+        
+        /// <summary>
         /// signup control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace Project_1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl login;
+        
+        /// <summary>
+        /// GametrackerPlaceHolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder GametrackerPlaceHolder;
         
         /// <summary>
         /// trackers control.

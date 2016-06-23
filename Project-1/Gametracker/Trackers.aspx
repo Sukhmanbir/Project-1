@@ -10,7 +10,7 @@
 <%@ Page Title="Trackers" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Trackers.aspx.cs" Inherits="Project_1.Tracker" %>
 
 <asp:Content ID="Trackers" ContentPlaceHolderID="MainContent" runat="server">
-    <h1><span class="fa fa-location-arrow"></span> Trackers <a href="CreateTracker.aspx" class="btn btn-primary pull-right">Create</a></h1>
+    <h1><span class="fa fa-location-arrow"></span> Trackers <a href="/Gametracker/CreateTracker.aspx" class="btn btn-primary pull-right">Create</a></h1>
 
      <asp:GridView runat="server" ID="TrackersGridView" AutoGenerateColumns="false"
                                 CssClass="table table-striped table-bordered table-hover"
@@ -18,10 +18,10 @@
                                 AllowSorting="true" OnSorting="TrackersGridView_Sorting" OnRowDataBound="TrackersGridView_RowDataBound">
                     <Columns>
                         <asp:BoundField DataField="tracker_id" HeaderText="Tracker ID" Visible="true" SortExpression="tracker_id" />
-                        <asp:BoundField DataField="name" ID="nameTextBox" HeaderText="Name" Visible="true" SortExpression="name" />
+                        <asp:BoundField DataField="name" HeaderText="Name" Visible="true" SortExpression="name" />
                         <asp:BoundField DataField="description" HeaderText="Description" Visible="true" SortExpression="description" />
                         
-                        <asp:HyperLinkField HeaderText="Edit" Text="<i class='fa fa-pencil-square-o fa-lg'></i> Edit" NavigateUrl="~/CreateTracker.aspx"
+                        <asp:HyperLinkField HeaderText="Edit" Text="<i class='fa fa-pencil-square-o fa-lg'></i> Edit" NavigateUrl="~/Gametracker/CreateTracker.aspx"
                             DataNavigateUrlFields="tracker_id" DataNavigateUrlFormatString="CreateTracker.aspx?tracker_id={0}" 
                             ItemStyle-CssClass="btn btn-primary btn-sm" ControlStyle-ForeColor="White" />
 

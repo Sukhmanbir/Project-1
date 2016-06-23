@@ -130,12 +130,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="CreateGame.aspx" />
-    <Content Include="CreateTeam.aspx" />
-    <Content Include="CreateTracker.aspx" />
-    <Content Include="Dashboard.aspx" />
+    <Content Include="Gametracker\CreateGame.aspx" />
+    <Content Include="Gametracker\CreateTeam.aspx" />
+    <Content Include="Gametracker\CreateTracker.aspx" />
+    <Content Include="Gametracker\Dashboard.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Games.aspx" />
+    <Content Include="Gametracker\Games.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="Models\GameTrackerModel.Context.tt">
@@ -150,7 +150,7 @@
     </Content>
     <Content Include="packages.config" />
     <Content Include="ResetPassword.aspx" />
-    <Content Include="Results.aspx" />
+    <Content Include="Gametracker\Results.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -190,8 +190,8 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Default.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="Teams.aspx" />
-    <Content Include="Trackers.aspx" />
+    <Content Include="Gametracker\Teams.aspx" />
+    <Content Include="Gametracker\Trackers.aspx" />
     <Content Include="User_Controls\Jumbotron.ascx" />
     <Content Include="User_Controls\Navbar.ascx" />
     <Content Include="Scripts\app.js" />
@@ -211,32 +211,32 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CreateGame.aspx.cs">
+    <Compile Include="Gametracker\CreateGame.aspx.cs">
       <DependentUpon>CreateGame.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CreateGame.aspx.designer.cs">
+    <Compile Include="Gametracker\CreateGame.aspx.designer.cs">
       <DependentUpon>CreateGame.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CreateTeam.aspx.cs">
+    <Compile Include="Gametracker\CreateTeam.aspx.cs">
       <DependentUpon>CreateTeam.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CreateTeam.aspx.designer.cs">
+    <Compile Include="Gametracker\CreateTeam.aspx.designer.cs">
       <DependentUpon>CreateTeam.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CreateTracker.aspx.cs">
+    <Compile Include="Gametracker\CreateTracker.aspx.cs">
       <DependentUpon>CreateTracker.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CreateTracker.aspx.designer.cs">
+    <Compile Include="Gametracker\CreateTracker.aspx.designer.cs">
       <DependentUpon>CreateTracker.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard.aspx.cs">
+    <Compile Include="Gametracker\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Dashboard.aspx.designer.cs">
+    <Compile Include="Gametracker\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
@@ -246,11 +246,11 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Games.aspx.cs">
+    <Compile Include="Gametracker\Games.aspx.cs">
       <DependentUpon>Games.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Games.aspx.designer.cs">
+    <Compile Include="Gametracker\Games.aspx.designer.cs">
       <DependentUpon>Games.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
@@ -305,11 +305,11 @@
     <Compile Include="ResetPassword.aspx.designer.cs">
       <DependentUpon>ResetPassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Results.aspx.cs">
+    <Compile Include="Gametracker\Results.aspx.cs">
       <DependentUpon>Results.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Results.aspx.designer.cs">
+    <Compile Include="Gametracker\Results.aspx.designer.cs">
       <DependentUpon>Results.aspx</DependentUpon>
     </Compile>
     <Compile Include="Signup.aspx.cs">
@@ -319,18 +319,18 @@
     <Compile Include="Signup.aspx.designer.cs">
       <DependentUpon>Signup.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Teams.aspx.cs">
+    <Compile Include="Gametracker\Teams.aspx.cs">
       <DependentUpon>Teams.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Teams.aspx.designer.cs">
+    <Compile Include="Gametracker\Teams.aspx.designer.cs">
       <DependentUpon>Teams.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Trackers.aspx.cs">
+    <Compile Include="Gametracker\Trackers.aspx.cs">
       <DependentUpon>Trackers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Trackers.aspx.designer.cs">
+    <Compile Include="Gametracker\Trackers.aspx.designer.cs">
       <DependentUpon>Trackers.aspx</DependentUpon>
     </Compile>
     <Compile Include="User_Controls\Jumbotron.ascx.cs">
