@@ -53,7 +53,6 @@ namespace Project_1
                     TrackerList.SelectedValue = updatedGame.tracker_fk.ToString();
                     GameNameTextBox.Text = updatedGame.GameName;
                     DescriptionTextBox.Text = updatedGame.GameDesc;
-                    DateTextBox.Text = updatedGame.GameDate.ToString();
                     TeamAList.SelectedValue = updatedGame.TeamA.ToString();
                     TeamBList.SelectedValue = updatedGame.TeamB.ToString();
                 }
@@ -139,7 +138,6 @@ namespace Project_1
                 newGame.GameDesc = DescriptionTextBox.Text;
                 newGame.TeamA = Convert.ToInt32(TeamAList.SelectedValue);
                 newGame.TeamB = Convert.ToInt32(TeamBList.SelectedValue);
-                newGame.GameDate = Convert.ToDateTime(DateTextBox.Text);
 
                 //adds new game to the Game Table collection
 

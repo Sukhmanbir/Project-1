@@ -19,7 +19,6 @@
                 <asp:BoundField DataField="GameID" HeaderText="Game ID" Visible="true" SortExpression="GameID" />
                 <asp:BoundField DataField="GameName" HeaderText="Name" Visible="true" SortExpression="GameName" />
                 <asp:BoundField DataField="GameDesc" HeaderText="Description" Visible="true" SortExpression="GameDesc" />
-                <asp:BoundField DataField="GameDate" HeaderText="Date" Visible="true" SortExpression="GameDate" DataFormatString="{0:yyyy-MM-dd}" />
                         
                 <asp:HyperLinkField HeaderText="Edit" Text="<i class='fa fa-pencil-square-o fa-lg'></i> Edit" NavigateUrl="~/Gametracker/CreateGame.aspx"
                     DataNavigateUrlFields="GameID" DataNavigateUrlFormatString="CreateGame.aspx?GameID={0}" 

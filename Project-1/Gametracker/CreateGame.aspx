@@ -33,19 +33,6 @@
                     Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
             <div class="form-group">
-                <label class="control-label" for="DateTextBox">Date of Game</label>
-                <asp:TextBox runat="server" CssClass="form-control" ID="DateTextBox"
-                    placeholder="Date of Game" required="false" TextMode="Date"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="dateValidator" runat="server" 
-                    ErrorMessage="Please enter a date" 
-                    ControlToValidate="DateTextBox"
-                    Display="Dynamic"></asp:RequiredFieldValidator>
-                 <asp:RegularExpressionValidator runat="server" 
-                     ControlToValidate="DateTextBox" 
-                     ValidationExpression="\d{4}-\d{2}-\d{2}"
-                     ErrorMessage="Enter date as yyyy-mm-dd" />
-            </div>
-            <div class="form-group">
                 <label class="control-label" for="DateTextBox">Team A</label>
                 <asp:DropDownList ID="TeamAList" runat="server" CssClass="form-control dropdown-toggle" />
             </div>
