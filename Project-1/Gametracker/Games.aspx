@@ -22,7 +22,7 @@
                         
                 <asp:HyperLinkField HeaderText="Edit" Text="<i class='fa fa-pencil-square-o fa-lg'></i> Edit" NavigateUrl="~/Gametracker/CreateGame.aspx"
                     DataNavigateUrlFields="GameID" DataNavigateUrlFormatString="CreateGame.aspx?GameID={0}" 
-                    ItemStyle-CssClass="btn btn-primary btn-sm edit" ControlStyle-ForeColor="White" />
+                    ItemStyle-CssClass="btn btn-primary btn-sm" ControlStyle-ForeColor="White" />
 
                 <asp:CommandField HeaderText="Delete" DeleteText="<i class='fa fa-trash-o fa-lg'></i> Delete" ShowDeleteButton="true" 
                     ButtonType="Link" ControlStyle-CssClass="btn btn-danger btn-sm"  />
