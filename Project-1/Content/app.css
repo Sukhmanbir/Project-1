@@ -43,4 +43,8 @@ h1, h2 {
         margin: 2em 0 2em 0;
     }
 
-
+/* edit button */
+#edit td.edit {
+    margin-top: 5px;
+    margin-left: 5px;
+}

@@ -133,7 +133,6 @@
     <Content Include="Gametracker\CreateGame.aspx" />
     <Content Include="Gametracker\CreateTeam.aspx" />
     <Content Include="Gametracker\CreateTracker.aspx" />
-    <Content Include="Gametracker\Dashboard.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Gametracker\Games.aspx" />
     <Content Include="Login.aspx" />
@@ -231,13 +230,6 @@
     </Compile>
     <Compile Include="Gametracker\CreateTracker.aspx.designer.cs">
       <DependentUpon>CreateTracker.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Gametracker\Dashboard.aspx.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Gametracker\Dashboard.aspx.designer.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

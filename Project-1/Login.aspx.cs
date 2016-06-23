@@ -39,8 +39,8 @@ namespace Project_1
                 //sign in
                 authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, userIdentity);
 
-                //redirect to the dashboard
-                Response.Redirect("/Gametracker/Dashboard.aspx");
+                //redirect to the default
+                Response.Redirect("/Default.aspx");
             }
             else
             {

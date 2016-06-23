@@ -19,13 +19,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
     <!-- CSS Section -->
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="Content/font-awesome.min.css" rel="stylesheet" />
-    <link href="Content/app.css" rel="stylesheet" />
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="/Content/app.css" rel="stylesheet" />
 </head>
 <body>
 
-    <div class="container">
+    <div class="container" id="edit">
         <form id="form1" runat="server">
         <bs3:Navbar runat="server" ID="PrimaryNav"></bs3:Navbar>
         <div>
@@ -37,8 +37,8 @@
     </div>
 
     <!-- JavaScript -->
-    <script src="Scripts/jquery-2.2.4.min.js"></script>
-    <script src="Scripts/bootstrap.min.js"></script>
-    <script src="Scripts/app.js"></script>
+    <script src="/Scripts/jquery-2.2.4.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/app.js"></script>
 </body>
 </html>
