@@ -245,6 +245,7 @@
     <Compile Include="Gametracker\Games.aspx.designer.cs">
       <DependentUpon>Games.aspx</DependentUpon>
     </Compile>
+    <Compile Include="IdentityExtensions\ApplicationUserManager.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
