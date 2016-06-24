@@ -13,10 +13,10 @@ namespace Project_1.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DefaultConnection : DbContext
+    public partial class GameTrackerConnection : DbContext
     {
-        public DefaultConnection()
-            : base("name=DefaultConnection")
+        public GameTrackerConnection()
+            : base("name=GameTrackerConnection")
         {
         }
     
@@ -25,11 +25,11 @@ namespace Project_1.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<GameResult> GameResults { get; set; }
         public virtual DbSet<Game> Games { get; set; }
         public virtual DbSet<Sport> Sports { get; set; }
         public virtual DbSet<Table> Tables { get; set; }
         public virtual DbSet<Team> Teams { get; set; }
         public virtual DbSet<Tracker> Trackers { get; set; }
-        public virtual DbSet<GameResult> GameResults { get; set; }
     }
 }

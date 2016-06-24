@@ -12,25 +12,20 @@ namespace Project_1.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Game
+    public partial class GameResult
     {
-        public int GameID { get; set; }
-        public string GameName { get; set; }
-        public string GameDesc { get; set; }
+        public int GameResultsID { get; set; }
         public int TeamA { get; set; }
-        public int tracker_fk { get; set; }
-        public int TeamB { get; set; }
-        public System.DateTime GameDate { get; set; }
-        public int Total_scores { get; set; }
-        public int Num_of_spectators { get; set; }
         public int TeamAScore { get; set; }
+        public int TeamB { get; set; }
         public int TeamBScore { get; set; }
-        public string Winning_team { get; set; }
-        public int sport_fk { get; set; }
+        public System.DateTime GameDate { get; set; }
+        public int Spectators { get; set; }
+        public int Winner { get; set; }
+        public int PointsAgainst { get; set; }
     
-        public virtual Tracker Tracker { get; set; }
-        public virtual Tracker Tracker1 { get; set; }
         public virtual Team Team { get; set; }
         public virtual Team Team1 { get; set; }
+        public virtual Team Team2 { get; set; }
     }
 }

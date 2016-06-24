@@ -81,9 +81,18 @@ namespace Project_1
             updateNames();
         }
 
+        /**
+         * Updates the display names of the input form
+         */
         private void updateNames()
         {
-            // get the ID of the selected game
+
+            // do nothing if no game has been selected
+            if (GameList.Items.Count == 0)
+            {
+                return;
+            }
+            
             int gameID = Convert.ToInt32(GameList.SelectedValue);
 
             //connect to EF DB

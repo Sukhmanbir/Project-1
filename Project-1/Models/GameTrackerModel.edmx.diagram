@@ -4,20 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="30c326c7ba3c4088810f3e4aba01f88a" Name="Diagram1">
-        <EntityTypeShape EntityType="gametrackerModel.Game" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="gametrackerModel.Sport" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="gametrackerModel.Table" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="gametrackerModel.Team" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="gametrackerModel.Tracker" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
-        <AssociationConnector Association="gametrackerModel.FK_Game_Tracker_Cascade" ManuallyRouted="false" />
-        <AssociationConnector Association="gametrackerModel.FK_Games_ToTrackers" ManuallyRouted="false" />
-        <AssociationConnector Association="gametrackerModel.FK_GamesTeamA_ToTeam" ManuallyRouted="false" />
-        <AssociationConnector Association="gametrackerModel.FK_GamesTeamB_ToTeam" ManuallyRouted="false" />
-        <AssociationConnector Association="gametrackerModel.FK_Tracker_Sport_Cascade" ManuallyRouted="false" />
-        <AssociationConnector Association="gametrackerModel.tracker_sport_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="gametrackerModel.FK_Games_ToSports" />
-        <EntityTypeShape EntityType="gametrackerModel.GameResult" Width="1.5" PointX="7.375" PointY="0.75" />
+      <Diagram DiagramId="83efe14fc43e469eaa5ca74d7eb7f612" Name="Diagram1">
+        <EntityTypeShape EntityType="GameTrackerModel.GameResult" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GameTrackerModel.Game" Width="1.5" PointX="6" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GameTrackerModel.Sport" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GameTrackerModel.Table" Width="1.5" PointX="8.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GameTrackerModel.Team" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GameTrackerModel.Tracker" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="GameTrackerModel.TeamA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="GameTrackerModel.TeamB_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="GameTrackerModel.WinningTeam_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="GameTrackerModel.FK_Game_Tracker_Cascade" ManuallyRouted="false" />
+        <AssociationConnector Association="GameTrackerModel.FK_Games_ToTrackers" ManuallyRouted="false" />
+        <AssociationConnector Association="GameTrackerModel.FK_GamesTeamA_ToTeam" ManuallyRouted="false" />
+        <AssociationConnector Association="GameTrackerModel.FK_GamesTeamB_ToTeam" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

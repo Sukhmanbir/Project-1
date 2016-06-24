@@ -30,7 +30,5 @@ namespace Project_1.Models
         public virtual ICollection<Game> Games { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Game> Games1 { get; set; }
-        public virtual Sport Sport { get; set; }
-        public virtual Sport Sport1 { get; set; }
     }
 }

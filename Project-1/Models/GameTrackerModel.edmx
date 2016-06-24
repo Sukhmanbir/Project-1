@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="gametrackerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="GameTrackerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="GameResults">
           <Key>
             <PropertyRef Name="GameResultsID" />
@@ -120,7 +120,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="gametrackerModelStoreContainer">
+        <Association Name="TeamA_FK">
+          <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+          <End Role="GameResults" Type="Self.GameResults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teams">
+              <PropertyRef Name="TeamID" />
+            </Principal>
+            <Dependent Role="GameResults">
+              <PropertyRef Name="TeamA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TeamB_FK">
+          <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+          <End Role="GameResults" Type="Self.GameResults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teams">
+              <PropertyRef Name="TeamID" />
+            </Principal>
+            <Dependent Role="GameResults">
+              <PropertyRef Name="TeamB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="WinningTeam_FK">
+          <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+          <End Role="GameResults" Type="Self.GameResults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teams">
+              <PropertyRef Name="TeamID" />
+            </Principal>
+            <Dependent Role="GameResults">
+              <PropertyRef Name="Winner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GameTrackerModelStoreContainer">
           <EntitySet Name="GameResults" EntityType="Self.GameResults" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Games" EntityType="Self.Games" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sports" EntityType="Self.Sports" Schema="dbo" store:Type="Tables" />
@@ -143,11 +179,41 @@
             <End Role="Teams" EntitySet="Teams" />
             <End Role="Games" EntitySet="Games" />
           </AssociationSet>
+          <AssociationSet Name="TeamA_FK" Association="Self.TeamA_FK">
+            <End Role="Teams" EntitySet="Teams" />
+            <End Role="GameResults" EntitySet="GameResults" />
+          </AssociationSet>
+          <AssociationSet Name="TeamB_FK" Association="Self.TeamB_FK">
+            <End Role="Teams" EntitySet="Teams" />
+            <End Role="GameResults" EntitySet="GameResults" />
+          </AssociationSet>
+          <AssociationSet Name="WinningTeam_FK" Association="Self.WinningTeam_FK">
+            <End Role="Teams" EntitySet="Teams" />
+            <End Role="GameResults" EntitySet="GameResults" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="gametrackerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="GameTrackerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="GameResult">
+          <Key>
+            <PropertyRef Name="GameResultsID" />
+          </Key>
+          <Property Name="GameResultsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeamA" Type="Int32" Nullable="false" />
+          <Property Name="TeamAScore" Type="Int32" Nullable="false" />
+          <Property Name="TeamB" Type="Int32" Nullable="false" />
+          <Property Name="TeamBScore" Type="Int32" Nullable="false" />
+          <Property Name="GameDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Spectators" Type="Int32" Nullable="false" />
+          <Property Name="Winner" Type="Int32" Nullable="false" />
+          <Property Name="PointsAgainst" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Team" Relationship="Self.TeamA_FK" FromRole="GameResults" ToRole="Teams" />
+          <NavigationProperty Name="Team1" Relationship="Self.TeamB_FK" FromRole="GameResults" ToRole="Teams" />
+          <NavigationProperty Name="Team2" Relationship="Self.WinningTeam_FK" FromRole="GameResults" ToRole="Teams" />
+        </EntityType>
         <EntityType Name="Game">
           <Key>
             <PropertyRef Name="GameID" />
@@ -155,21 +221,20 @@
           <Property Name="GameID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="GameName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="GameDesc" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Total_scores" Type="Int32" Nullable="false" />
-          <Property Name="Num_of_spectators" Type="Int32" Nullable="false" />
-          <Property Name="Winning_team" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TeamA" Type="Int32" Nullable="false" />
           <Property Name="tracker_fk" Type="Int32" Nullable="false" />
           <Property Name="TeamB" Type="Int32" Nullable="false" />
+          <Property Name="GameDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Total_scores" Type="Int32" Nullable="false" />
+          <Property Name="Num_of_spectators" Type="Int32" Nullable="false" />
           <Property Name="TeamAScore" Type="Int32" Nullable="false" />
           <Property Name="TeamBScore" Type="Int32" Nullable="false" />
+          <Property Name="Winning_team" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sport_fk" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Tracker" Relationship="Self.FK_Game_Tracker_Cascade" FromRole="Games" ToRole="Trackers" />
           <NavigationProperty Name="Tracker1" Relationship="Self.FK_Games_ToTrackers" FromRole="Games" ToRole="Trackers" />
           <NavigationProperty Name="Team" Relationship="Self.FK_GamesTeamA_ToTeam" FromRole="Games" ToRole="Teams" />
           <NavigationProperty Name="Team1" Relationship="Self.FK_GamesTeamB_ToTeam" FromRole="Games" ToRole="Teams" />
-          <Property Name="GameDate" Type="DateTime" Precision="3" Nullable="false" />
-          <Property Name="sport_fk" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Sport" Relationship="gametrackerModel.FK_Games_ToSports" FromRole="Game" ToRole="Sport" />
         </EntityType>
         <EntityType Name="Sport">
           <Key>
@@ -177,9 +242,6 @@
           </Key>
           <Property Name="sport_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Trackers" Relationship="Self.FK_Tracker_Sport_Cascade" FromRole="Sports" ToRole="Trackers" />
-          <NavigationProperty Name="Trackers1" Relationship="Self.tracker_sport_fk" FromRole="Sports" ToRole="Trackers" />
-          <NavigationProperty Name="Games" Relationship="gametrackerModel.FK_Games_ToSports" FromRole="Sport" ToRole="Game" />
         </EntityType>
         <EntityType Name="Table">
           <Key>
@@ -197,6 +259,9 @@
           <Property Name="TeamID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TeamName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TeamDesc" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="GameResults" Relationship="Self.TeamA_FK" FromRole="Teams" ToRole="GameResults" />
+          <NavigationProperty Name="GameResults1" Relationship="Self.TeamB_FK" FromRole="Teams" ToRole="GameResults" />
+          <NavigationProperty Name="GameResults2" Relationship="Self.WinningTeam_FK" FromRole="Teams" ToRole="GameResults" />
           <NavigationProperty Name="Games" Relationship="Self.FK_GamesTeamA_ToTeam" FromRole="Teams" ToRole="Games" />
           <NavigationProperty Name="Games1" Relationship="Self.FK_GamesTeamB_ToTeam" FromRole="Teams" ToRole="Games" />
         </EntityType>
@@ -210,9 +275,43 @@
           <Property Name="sport_fk" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Games" Relationship="Self.FK_Game_Tracker_Cascade" FromRole="Trackers" ToRole="Games" />
           <NavigationProperty Name="Games1" Relationship="Self.FK_Games_ToTrackers" FromRole="Trackers" ToRole="Games" />
-          <NavigationProperty Name="Sport" Relationship="Self.FK_Tracker_Sport_Cascade" FromRole="Trackers" ToRole="Sports" />
-          <NavigationProperty Name="Sport1" Relationship="Self.tracker_sport_fk" FromRole="Trackers" ToRole="Sports" />
         </EntityType>
+        <Association Name="TeamA_FK">
+          <End Role="Teams" Type="Self.Team" Multiplicity="1" />
+          <End Role="GameResults" Type="Self.GameResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teams">
+              <PropertyRef Name="TeamID" />
+            </Principal>
+            <Dependent Role="GameResults">
+              <PropertyRef Name="TeamA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TeamB_FK">
+          <End Role="Teams" Type="Self.Team" Multiplicity="1" />
+          <End Role="GameResults" Type="Self.GameResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teams">
+              <PropertyRef Name="TeamID" />
+            </Principal>
+            <Dependent Role="GameResults">
+              <PropertyRef Name="TeamB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="WinningTeam_FK">
+          <End Role="Teams" Type="Self.Team" Multiplicity="1" />
+          <End Role="GameResults" Type="Self.GameResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teams">
+              <PropertyRef Name="TeamID" />
+            </Principal>
+            <Dependent Role="GameResults">
+              <PropertyRef Name="Winner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Game_Tracker_Cascade">
           <End Role="Trackers" Type="Self.Tracker" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -263,38 +362,25 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Tracker_Sport_Cascade">
-          <End Role="Sports" Type="Self.Sport" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Trackers" Type="Self.Tracker" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sports">
-              <PropertyRef Name="sport_id" />
-            </Principal>
-            <Dependent Role="Trackers">
-              <PropertyRef Name="sport_fk" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="tracker_sport_fk">
-          <End Role="Sports" Type="Self.Sport" Multiplicity="1" />
-          <End Role="Trackers" Type="Self.Tracker" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sports">
-              <PropertyRef Name="sport_id" />
-            </Principal>
-            <Dependent Role="Trackers">
-              <PropertyRef Name="sport_fk" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="DefaultConnection" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="GameTrackerConnection" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GameResults" EntityType="Self.GameResult" />
           <EntitySet Name="Games" EntityType="Self.Game" />
           <EntitySet Name="Sports" EntityType="Self.Sport" />
           <EntitySet Name="Tables" EntityType="Self.Table" />
           <EntitySet Name="Teams" EntityType="Self.Team" />
           <EntitySet Name="Trackers" EntityType="Self.Tracker" />
+          <AssociationSet Name="TeamA_FK" Association="Self.TeamA_FK">
+            <End Role="Teams" EntitySet="Teams" />
+            <End Role="GameResults" EntitySet="GameResults" />
+          </AssociationSet>
+          <AssociationSet Name="TeamB_FK" Association="Self.TeamB_FK">
+            <End Role="Teams" EntitySet="Teams" />
+            <End Role="GameResults" EntitySet="GameResults" />
+          </AssociationSet>
+          <AssociationSet Name="WinningTeam_FK" Association="Self.WinningTeam_FK">
+            <End Role="Teams" EntitySet="Teams" />
+            <End Role="GameResults" EntitySet="GameResults" />
+          </AssociationSet>
           <AssociationSet Name="FK_Game_Tracker_Cascade" Association="Self.FK_Game_Tracker_Cascade">
             <End Role="Trackers" EntitySet="Trackers" />
             <End Role="Games" EntitySet="Games" />
@@ -311,73 +397,49 @@
             <End Role="Teams" EntitySet="Teams" />
             <End Role="Games" EntitySet="Games" />
           </AssociationSet>
-          <AssociationSet Name="FK_Tracker_Sport_Cascade" Association="Self.FK_Tracker_Sport_Cascade">
-            <End Role="Sports" EntitySet="Sports" />
-            <End Role="Trackers" EntitySet="Trackers" />
-          </AssociationSet>
-          <AssociationSet Name="tracker_sport_fk" Association="Self.tracker_sport_fk">
-            <End Role="Sports" EntitySet="Sports" />
-            <End Role="Trackers" EntitySet="Trackers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Games_ToSports" Association="gametrackerModel.FK_Games_ToSports">
-            <End Role="Sport" EntitySet="Sports" />
-            <End Role="Game" EntitySet="Games" />
-          </AssociationSet>
-          <EntitySet Name="GameResults" EntityType="gametrackerModel.GameResult" />
         </EntityContainer>
-        <Association Name="FK_Games_ToSports">
-          <End Type="gametrackerModel.Sport" Role="Sport" Multiplicity="1" />
-          <End Type="gametrackerModel.Game" Role="Game" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sport">
-              <PropertyRef Name="sport_id" />
-            </Principal>
-            <Dependent Role="Game">
-              <PropertyRef Name="sport_fk" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="GameResult">
-          <Key>
-            <PropertyRef Name="GameResultsID" />
-          </Key>
-          <Property Name="GameResultsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TeamA" Type="Int32" Nullable="false" />
-          <Property Name="TeamAScore" Type="Int32" Nullable="false" />
-          <Property Name="TeamB" Type="Int32" Nullable="false" />
-          <Property Name="TeamBScore" Type="Int32" Nullable="false" />
-          <Property Name="GameDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Spectators" Type="Int32" Nullable="false" />
-          <Property Name="Winner" Type="Int32" Nullable="false" />
-          <Property Name="PointsAgainst" Type="Int32" Nullable="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="gametrackerModelStoreContainer" CdmEntityContainer="DefaultConnection">
-          <EntitySetMapping Name="Games">
-            <EntityTypeMapping TypeName="gametrackerModel.Game">
-              <MappingFragment StoreEntitySet="Games">
-                <ScalarProperty Name="sport_fk" ColumnName="sport_fk" />
+        <EntityContainerMapping StorageEntityContainer="GameTrackerModelStoreContainer" CdmEntityContainer="GameTrackerConnection">
+          <EntitySetMapping Name="GameResults">
+            <EntityTypeMapping TypeName="GameTrackerModel.GameResult">
+              <MappingFragment StoreEntitySet="GameResults">
+                <ScalarProperty Name="GameResultsID" ColumnName="GameResultsID" />
+                <ScalarProperty Name="TeamA" ColumnName="TeamA" />
+                <ScalarProperty Name="TeamAScore" ColumnName="TeamAScore" />
+                <ScalarProperty Name="TeamB" ColumnName="TeamB" />
+                <ScalarProperty Name="TeamBScore" ColumnName="TeamBScore" />
                 <ScalarProperty Name="GameDate" ColumnName="GameDate" />
+                <ScalarProperty Name="Spectators" ColumnName="Spectators" />
+                <ScalarProperty Name="Winner" ColumnName="Winner" />
+                <ScalarProperty Name="PointsAgainst" ColumnName="PointsAgainst" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Games">
+            <EntityTypeMapping TypeName="GameTrackerModel.Game">
+              <MappingFragment StoreEntitySet="Games">
                 <ScalarProperty Name="GameID" ColumnName="GameID" />
                 <ScalarProperty Name="GameName" ColumnName="GameName" />
                 <ScalarProperty Name="GameDesc" ColumnName="GameDesc" />
-                <ScalarProperty Name="Total_scores" ColumnName="Total_scores" />
-                <ScalarProperty Name="Num_of_spectators" ColumnName="Num_of_spectators" />
-                <ScalarProperty Name="Winning_team" ColumnName="Winning_team" />
                 <ScalarProperty Name="TeamA" ColumnName="TeamA" />
                 <ScalarProperty Name="tracker_fk" ColumnName="tracker_fk" />
                 <ScalarProperty Name="TeamB" ColumnName="TeamB" />
+                <ScalarProperty Name="GameDate" ColumnName="GameDate" />
+                <ScalarProperty Name="Total_scores" ColumnName="Total_scores" />
+                <ScalarProperty Name="Num_of_spectators" ColumnName="Num_of_spectators" />
                 <ScalarProperty Name="TeamAScore" ColumnName="TeamAScore" />
                 <ScalarProperty Name="TeamBScore" ColumnName="TeamBScore" />
+                <ScalarProperty Name="Winning_team" ColumnName="Winning_team" />
+                <ScalarProperty Name="sport_fk" ColumnName="sport_fk" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sports">
-            <EntityTypeMapping TypeName="gametrackerModel.Sport">
+            <EntityTypeMapping TypeName="GameTrackerModel.Sport">
               <MappingFragment StoreEntitySet="Sports">
                 <ScalarProperty Name="sport_id" ColumnName="sport_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -385,7 +447,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tables">
-            <EntityTypeMapping TypeName="gametrackerModel.Table">
+            <EntityTypeMapping TypeName="GameTrackerModel.Table">
               <MappingFragment StoreEntitySet="Table">
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
                 <ScalarProperty Name="username" ColumnName="username" />
@@ -395,7 +457,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Teams">
-            <EntityTypeMapping TypeName="gametrackerModel.Team">
+            <EntityTypeMapping TypeName="GameTrackerModel.Team">
               <MappingFragment StoreEntitySet="Teams">
                 <ScalarProperty Name="TeamID" ColumnName="TeamID" />
                 <ScalarProperty Name="TeamName" ColumnName="TeamName" />
@@ -404,27 +466,12 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Trackers">
-            <EntityTypeMapping TypeName="gametrackerModel.Tracker">
+            <EntityTypeMapping TypeName="GameTrackerModel.Tracker">
               <MappingFragment StoreEntitySet="Trackers">
                 <ScalarProperty Name="tracker_id" ColumnName="tracker_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="sport_fk" ColumnName="sport_fk" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="GameResults">
-            <EntityTypeMapping TypeName="gametrackerModel.GameResult">
-              <MappingFragment StoreEntitySet="GameResults">
-                <ScalarProperty Name="PointsAgainst" ColumnName="PointsAgainst" />
-                <ScalarProperty Name="Winner" ColumnName="Winner" />
-                <ScalarProperty Name="Spectators" ColumnName="Spectators" />
-                <ScalarProperty Name="GameDate" ColumnName="GameDate" />
-                <ScalarProperty Name="TeamBScore" ColumnName="TeamBScore" />
-                <ScalarProperty Name="TeamB" ColumnName="TeamB" />
-                <ScalarProperty Name="TeamAScore" ColumnName="TeamAScore" />
-                <ScalarProperty Name="TeamA" ColumnName="TeamA" />
-                <ScalarProperty Name="GameResultsID" ColumnName="GameResultsID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
