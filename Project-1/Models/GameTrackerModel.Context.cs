@@ -13,10 +13,10 @@ namespace Project_1.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GameTrackerConnection : DbContext
+    public partial class DefaultConnection : DbContext
     {
-        public GameTrackerConnection()
-            : base("name=GameTrackerConnection")
+        public DefaultConnection()
+            : base("name=DefaultConnection")
         {
         }
     
@@ -30,5 +30,6 @@ namespace Project_1.Models
         public virtual DbSet<Table> Tables { get; set; }
         public virtual DbSet<Team> Teams { get; set; }
         public virtual DbSet<Tracker> Trackers { get; set; }
+        public virtual DbSet<GameResult> GameResults { get; set; }
     }
 }

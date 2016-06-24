@@ -17,6 +17,7 @@
         <AssociationConnector Association="gametrackerModel.FK_Tracker_Sport_Cascade" ManuallyRouted="false" />
         <AssociationConnector Association="gametrackerModel.tracker_sport_fk" ManuallyRouted="false" />
         <AssociationConnector Association="gametrackerModel.FK_Games_ToSports" />
+        <EntityTypeShape EntityType="gametrackerModel.GameResult" Width="1.5" PointX="7.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -17,15 +17,15 @@ namespace Project_1.Models
         public int GameID { get; set; }
         public string GameName { get; set; }
         public string GameDesc { get; set; }
-        public Nullable<int> Total_scores { get; set; }
-        public Nullable<int> Num_of_spectators { get; set; }
+        public int Total_scores { get; set; }
+        public int Num_of_spectators { get; set; }
         public string Winning_team { get; set; }
         public int TeamA { get; set; }
         public int tracker_fk { get; set; }
         public int TeamB { get; set; }
-        public Nullable<int> TeamAScore { get; set; }
-        public Nullable<int> TeamBScore { get; set; }
-        public Nullable<System.DateTime> GameDate { get; set; }
+        public int TeamAScore { get; set; }
+        public int TeamBScore { get; set; }
+        public System.DateTime GameDate { get; set; }
         public int sport_fk { get; set; }
     
         public virtual Tracker Tracker { get; set; }
