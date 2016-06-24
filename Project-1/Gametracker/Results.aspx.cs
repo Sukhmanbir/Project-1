@@ -5,6 +5,7 @@
     Description: Codebehind for Results.aspx
     Version History: Initial Commit
         - Display correct team information when tracker/games are changed
+        - Display correct information in results form
     */
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,10 @@ namespace Project_1
 {
     public partial class Results : System.Web.UI.Page
     {
-        
+
+        int teamAID = 7;
+        int teamBID = 8;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -31,9 +35,34 @@ namespace Project_1
                 this.GetTrackers();
                 this.GetGames();
                 this.updateNames();
+                this.setTeamsOnWinner();
             }
         }
 
+        /**
+         * Populates the winner drop down list
+         */
+        protected void setTeamsOnWinner()
+        {
+            //connect to EF DB
+            using (GameTrackerConnection db = new GameTrackerConnection())
+            {
+                //query the students table using EF and LINQ
+                var Teams = (from allTeams in db.Teams
+                             where allTeams.TeamID == teamAID || allTeams.TeamID == teamBID
+                                select allTeams).ToList();
+
+                //bind the result to the GridView
+                WinnerDropDown.DataValueField = "TeamID";
+                WinnerDropDown.DataTextField = "TeamName";
+                WinnerDropDown.DataSource = Teams;
+                WinnerDropDown.DataBind();
+            }
+        }
+
+        /**
+         * Populates the tracker field
+         */
         protected void GetTrackers()
         {
             //connect to EF DB
@@ -51,6 +80,9 @@ namespace Project_1
             }
         }
 
+        /**
+         * Gets a list of available games
+         */
         protected void GetGames()
         {
             // do nothing if there are no trackers
@@ -70,6 +102,7 @@ namespace Project_1
                 var Games = (from allGames in db.Games
                                 where allGames.tracker_fk == tracker_id
                                 select allGames).ToList();
+                
 
                 //bind the result to the GridView
                 GameList.DataValueField = "GameID";
@@ -106,18 +139,22 @@ namespace Project_1
             {
 
                 // get teamA name
-                var teamA_Name = (from team in db.Teams
+                var teamA = (from team in db.Teams
                                   where team.TeamID == (from games in db.Games where games.GameID == gameID select games.TeamA).FirstOrDefault()
-                                  select team.TeamName).FirstOrDefault();
+                                  select team).FirstOrDefault();
 
                 // get teamA name
-                var teamB_Name = (from team in db.Teams
+                var teamB = (from team in db.Teams
                                   where team.TeamID == (from games in db.Games where games.GameID == gameID select games.TeamB).FirstOrDefault()
-                                  select team.TeamName).FirstOrDefault();
+                                  select team).FirstOrDefault();
+
+                // Set Team ID's, used for populating the winner dropdown
+                this.teamAID = teamA.TeamID;
+                this.teamBID = teamB.TeamID;
 
                 // change the team names
-                TeamALabel.Text = teamA_Name.ToString();
-                TeamBLabel.Text = teamB_Name.ToString();
+                TeamALabel.Text = teamA.TeamName.ToString();
+                TeamBLabel.Text = teamB.TeamName.ToString();
             }
         }
 
