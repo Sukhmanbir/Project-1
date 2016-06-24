@@ -23,7 +23,9 @@ namespace Project_1.Models
         public int Spectators { get; set; }
         public int Winner { get; set; }
         public int PointsAgainst { get; set; }
+        public int GameFK { get; set; }
     
+        public virtual Game Game { get; set; }
         public virtual Team Team { get; set; }
         public virtual Team Team1 { get; set; }
         public virtual Team Team2 { get; set; }

@@ -18,6 +18,7 @@
           <Property Name="Spectators" Type="int" Nullable="false" />
           <Property Name="Winner" Type="int" Nullable="false" />
           <Property Name="PointsAgainst" Type="int" Nullable="false" />
+          <Property Name="GameFK" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Games">
           <Key>
@@ -29,20 +30,6 @@
           <Property Name="TeamA" Type="int" Nullable="false" />
           <Property Name="tracker_fk" Type="int" Nullable="false" />
           <Property Name="TeamB" Type="int" Nullable="false" />
-          <Property Name="GameDate" Type="datetime" Nullable="false" />
-          <Property Name="Total_scores" Type="int" Nullable="false" />
-          <Property Name="Num_of_spectators" Type="int" Nullable="false" />
-          <Property Name="TeamAScore" Type="int" Nullable="false" />
-          <Property Name="TeamBScore" Type="int" Nullable="false" />
-          <Property Name="Winning_team" Type="varchar(max)" Nullable="false" />
-          <Property Name="sport_fk" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Sports">
-          <Key>
-            <PropertyRef Name="sport_id" />
-          </Key>
-          <Property Name="sport_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Table">
           <Key>
@@ -68,7 +55,6 @@
           <Property Name="tracker_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="description" Type="varchar(max)" Nullable="false" />
-          <Property Name="sport_fk" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Game_Tracker_Cascade">
           <End Role="Trackers" Type="Self.Trackers" Multiplicity="1">
@@ -120,6 +106,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Game_FK">
+          <End Role="Games" Type="Self.Games" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GameResults" Type="Self.GameResults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Games">
+              <PropertyRef Name="GameID" />
+            </Principal>
+            <Dependent Role="GameResults">
+              <PropertyRef Name="GameFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="TeamA_FK">
           <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
           <End Role="GameResults" Type="Self.GameResults" Multiplicity="*" />
@@ -159,7 +159,6 @@
         <EntityContainer Name="GameTrackerModelStoreContainer">
           <EntitySet Name="GameResults" EntityType="Self.GameResults" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Games" EntityType="Self.Games" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Sports" EntityType="Self.Sports" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teams" EntityType="Self.Teams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Trackers" EntityType="Self.Trackers" Schema="dbo" store:Type="Tables" />
@@ -178,6 +177,10 @@
           <AssociationSet Name="FK_GamesTeamB_ToTeam" Association="Self.FK_GamesTeamB_ToTeam">
             <End Role="Teams" EntitySet="Teams" />
             <End Role="Games" EntitySet="Games" />
+          </AssociationSet>
+          <AssociationSet Name="Game_FK" Association="Self.Game_FK">
+            <End Role="Games" EntitySet="Games" />
+            <End Role="GameResults" EntitySet="GameResults" />
           </AssociationSet>
           <AssociationSet Name="TeamA_FK" Association="Self.TeamA_FK">
             <End Role="Teams" EntitySet="Teams" />
@@ -210,6 +213,8 @@
           <Property Name="Spectators" Type="Int32" Nullable="false" />
           <Property Name="Winner" Type="Int32" Nullable="false" />
           <Property Name="PointsAgainst" Type="Int32" Nullable="false" />
+          <Property Name="GameFK" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Game" Relationship="Self.Game_FK" FromRole="GameResults" ToRole="Games" />
           <NavigationProperty Name="Team" Relationship="Self.TeamA_FK" FromRole="GameResults" ToRole="Teams" />
           <NavigationProperty Name="Team1" Relationship="Self.TeamB_FK" FromRole="GameResults" ToRole="Teams" />
           <NavigationProperty Name="Team2" Relationship="Self.WinningTeam_FK" FromRole="GameResults" ToRole="Teams" />
@@ -224,24 +229,11 @@
           <Property Name="TeamA" Type="Int32" Nullable="false" />
           <Property Name="tracker_fk" Type="Int32" Nullable="false" />
           <Property Name="TeamB" Type="Int32" Nullable="false" />
-          <Property Name="GameDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Total_scores" Type="Int32" Nullable="false" />
-          <Property Name="Num_of_spectators" Type="Int32" Nullable="false" />
-          <Property Name="TeamAScore" Type="Int32" Nullable="false" />
-          <Property Name="TeamBScore" Type="Int32" Nullable="false" />
-          <Property Name="Winning_team" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="sport_fk" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="GameResults" Relationship="Self.Game_FK" FromRole="Games" ToRole="GameResults" />
           <NavigationProperty Name="Tracker" Relationship="Self.FK_Game_Tracker_Cascade" FromRole="Games" ToRole="Trackers" />
           <NavigationProperty Name="Tracker1" Relationship="Self.FK_Games_ToTrackers" FromRole="Games" ToRole="Trackers" />
           <NavigationProperty Name="Team" Relationship="Self.FK_GamesTeamA_ToTeam" FromRole="Games" ToRole="Teams" />
           <NavigationProperty Name="Team1" Relationship="Self.FK_GamesTeamB_ToTeam" FromRole="Games" ToRole="Teams" />
-        </EntityType>
-        <EntityType Name="Sport">
-          <Key>
-            <PropertyRef Name="sport_id" />
-          </Key>
-          <Property Name="sport_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Table">
           <Key>
@@ -272,10 +264,23 @@
           <Property Name="tracker_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="sport_fk" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Games" Relationship="Self.FK_Game_Tracker_Cascade" FromRole="Trackers" ToRole="Games" />
           <NavigationProperty Name="Games1" Relationship="Self.FK_Games_ToTrackers" FromRole="Trackers" ToRole="Games" />
         </EntityType>
+        <Association Name="Game_FK">
+          <End Role="Games" Type="Self.Game" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GameResults" Type="Self.GameResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Games">
+              <PropertyRef Name="GameID" />
+            </Principal>
+            <Dependent Role="GameResults">
+              <PropertyRef Name="GameFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="TeamA_FK">
           <End Role="Teams" Type="Self.Team" Multiplicity="1" />
           <End Role="GameResults" Type="Self.GameResult" Multiplicity="*" />
@@ -365,10 +370,13 @@
         <EntityContainer Name="GameTrackerConnection" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="GameResults" EntityType="Self.GameResult" />
           <EntitySet Name="Games" EntityType="Self.Game" />
-          <EntitySet Name="Sports" EntityType="Self.Sport" />
           <EntitySet Name="Tables" EntityType="Self.Table" />
           <EntitySet Name="Teams" EntityType="Self.Team" />
           <EntitySet Name="Trackers" EntityType="Self.Tracker" />
+          <AssociationSet Name="Game_FK" Association="Self.Game_FK">
+            <End Role="Games" EntitySet="Games" />
+            <End Role="GameResults" EntitySet="GameResults" />
+          </AssociationSet>
           <AssociationSet Name="TeamA_FK" Association="Self.TeamA_FK">
             <End Role="Teams" EntitySet="Teams" />
             <End Role="GameResults" EntitySet="GameResults" />
@@ -416,6 +424,7 @@
                 <ScalarProperty Name="Spectators" ColumnName="Spectators" />
                 <ScalarProperty Name="Winner" ColumnName="Winner" />
                 <ScalarProperty Name="PointsAgainst" ColumnName="PointsAgainst" />
+                <ScalarProperty Name="GameFK" ColumnName="GameFK" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -428,21 +437,6 @@
                 <ScalarProperty Name="TeamA" ColumnName="TeamA" />
                 <ScalarProperty Name="tracker_fk" ColumnName="tracker_fk" />
                 <ScalarProperty Name="TeamB" ColumnName="TeamB" />
-                <ScalarProperty Name="GameDate" ColumnName="GameDate" />
-                <ScalarProperty Name="Total_scores" ColumnName="Total_scores" />
-                <ScalarProperty Name="Num_of_spectators" ColumnName="Num_of_spectators" />
-                <ScalarProperty Name="TeamAScore" ColumnName="TeamAScore" />
-                <ScalarProperty Name="TeamBScore" ColumnName="TeamBScore" />
-                <ScalarProperty Name="Winning_team" ColumnName="Winning_team" />
-                <ScalarProperty Name="sport_fk" ColumnName="sport_fk" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Sports">
-            <EntityTypeMapping TypeName="GameTrackerModel.Sport">
-              <MappingFragment StoreEntitySet="Sports">
-                <ScalarProperty Name="sport_id" ColumnName="sport_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -471,7 +465,6 @@
                 <ScalarProperty Name="tracker_id" ColumnName="tracker_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="sport_fk" ColumnName="sport_fk" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -134,6 +134,7 @@
     <Content Include="Gametracker\CreateTeam.aspx" />
     <Content Include="Gametracker\CreateTracker.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="ErrorPage.aspx" />
     <Content Include="Gametracker\Games.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
@@ -200,7 +201,9 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contact.aspx.cs">
@@ -237,6 +240,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.designer.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Gametracker\Games.aspx.cs">
       <DependentUpon>Games.aspx</DependentUpon>
@@ -280,9 +290,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GameTrackerModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Sport.cs">
-      <DependentUpon>GameTrackerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Table.cs">
       <DependentUpon>GameTrackerModel.tt</DependentUpon>

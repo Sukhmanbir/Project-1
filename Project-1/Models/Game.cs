@@ -14,20 +14,21 @@ namespace Project_1.Models
     
     public partial class Game
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Game()
+        {
+            this.GameResults = new HashSet<GameResult>();
+        }
+    
         public int GameID { get; set; }
         public string GameName { get; set; }
         public string GameDesc { get; set; }
         public int TeamA { get; set; }
         public int tracker_fk { get; set; }
         public int TeamB { get; set; }
-        public System.DateTime GameDate { get; set; }
-        public int Total_scores { get; set; }
-        public int Num_of_spectators { get; set; }
-        public int TeamAScore { get; set; }
-        public int TeamBScore { get; set; }
-        public string Winning_team { get; set; }
-        public int sport_fk { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GameResult> GameResults { get; set; }
         public virtual Tracker Tracker { get; set; }
         public virtual Tracker Tracker1 { get; set; }
         public virtual Team Team { get; set; }

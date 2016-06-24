@@ -62,19 +62,6 @@
     <div id="gameResults" class="row">
         <div class="col-xs-12">
 
-            <asp:GridView runat="server" ID="GameDeatilsGridView" AutoGenerateColumns="false"
-                CssClass="table table-striped table-bordered table-hover">
-                <Columns>
-                    <asp:BoundField DataField="GameName" HeaderText="Name" Visible="true" />
-                    <asp:BoundField DataField="GameDesc" HeaderText="Description" Visible="true" />
-                    <asp:BoundField DataField="TeamA" HeaderText="Team A" Visible="true" />
-                    <asp:BoundField DataField="TeamAScore" HeaderText="(Score)" Visible="true" />
-                    <asp:BoundField DataField="TeamB" HeaderText="Team B" Visible="true" />
-                    <asp:BoundField DataField="TeamBScore" HeaderText="(Score)" Visible="true" />
-                    <asp:BoundField DataField="Total_scores" HeaderText="Total Score" Visible="true" />
-                    <asp:BoundField DataField="Winning_team" HeaderText="Winner" Visible="true" />
-                </Columns>
-            </asp:GridView>
         </div>
     </div>
 </asp:Content>

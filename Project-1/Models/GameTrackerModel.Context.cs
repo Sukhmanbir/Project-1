@@ -27,7 +27,6 @@ namespace Project_1.Models
     
         public virtual DbSet<GameResult> GameResults { get; set; }
         public virtual DbSet<Game> Games { get; set; }
-        public virtual DbSet<Sport> Sports { get; set; }
         public virtual DbSet<Table> Tables { get; set; }
         public virtual DbSet<Team> Teams { get; set; }
         public virtual DbSet<Tracker> Trackers { get; set; }

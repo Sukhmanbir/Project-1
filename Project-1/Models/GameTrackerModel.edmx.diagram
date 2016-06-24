@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="83efe14fc43e469eaa5ca74d7eb7f612" Name="Diagram1">
-        <EntityTypeShape EntityType="GameTrackerModel.GameResult" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GameTrackerModel.Game" Width="1.5" PointX="6" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GameTrackerModel.Sport" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GameTrackerModel.Table" Width="1.5" PointX="8.75" PointY="1.125" IsExpanded="true" />
+      <Diagram DiagramId="75f841d2200f43d59bba31287accf5bb" Name="Diagram1">
+        <EntityTypeShape EntityType="GameTrackerModel.GameResult" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GameTrackerModel.Game" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GameTrackerModel.Table" Width="1.5" PointX="5.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="GameTrackerModel.Team" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="GameTrackerModel.Tracker" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="GameTrackerModel.Game_FK" ManuallyRouted="false" />
         <AssociationConnector Association="GameTrackerModel.TeamA_FK" ManuallyRouted="false" />
         <AssociationConnector Association="GameTrackerModel.TeamB_FK" ManuallyRouted="false" />
         <AssociationConnector Association="GameTrackerModel.WinningTeam_FK" ManuallyRouted="false" />

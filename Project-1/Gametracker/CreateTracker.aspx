@@ -29,9 +29,6 @@
                     ErrorMessage="Please enter a tracker description" 
                     ControlToValidate="DescriptionTextBox"
                     Display="Dynamic"></asp:RequiredFieldValidator>
-
-                <label class="control-label" for="SportsList">Sport</label>
-                <asp:DropDownList ID="SportsList" runat="server" CssClass="form-control dropdown-toggle" />
             </div>
             <div class="form-group text-right ">
                 <asp:Button Text="Cancel" ID="CancelButton" runat="server" CssClass="btn btn-warning" UseSubmitBehavior="false" CausesValidation="false" OnClick="CancelButton_Click" />

@@ -21,7 +21,6 @@ namespace Project_1
                 this.GetTracker();
                 
             }
-            this.GetSports();
         }
 
         /**
@@ -49,24 +48,10 @@ namespace Project_1
                 }
             }
         }
-
-        protected void GetSports()
-        {
-            //connect to the EF DB
-            using (GameTrackerConnection db = new GameTrackerConnection())
-            {
-                //populate a tracker instance with the tracker_id from the URL parameter
-                var sportResults = (from sports in db.Sports
-                                    select sports).ToList();
-
-                //bind the result to the GridView
-                SportsList.DataValueField = "sport_id";
-                SportsList.DataTextField = "name";
-                SportsList.DataSource = sportResults;
-                SportsList.DataBind();
-            }
-        }
-
+        
+        /**
+         * Returns the user to the tracker page
+         */
         protected void CancelButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Gametracker/Trackers.aspx");
@@ -94,7 +79,6 @@ namespace Project_1
 
                     newTracker.name = TrackerNameTextBox.Text;
                     newTracker.description = DescriptionTextBox.Text;
-                    newTracker.sport_fk = Convert.ToInt32(SportsList.SelectedValue);
 
                     //adds new tracker to the Tracker Table collection
 

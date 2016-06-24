@@ -28,6 +28,22 @@ namespace Project_1
                 this.GetTrackers();
                 this.GetTeams();
             }
+
+            // do nothing if there are no trackers
+            if (TrackerList.Items.Count == 0)
+            {
+                string errMsg = "Please create a tracker before you create a game.";
+                Response.Redirect("~/ErrorPage.aspx?error=" + errMsg);
+            }
+
+            // do nothing if there are no teams
+            if (TeamAList.Items.Count < 2)
+            {
+                string errMsg = "Please create two teams before you create a game.";
+                Response.Redirect("~/ErrorPage.aspx?error=" + errMsg);
+            }
+
+
         }
 
         /**
@@ -91,7 +107,8 @@ namespace Project_1
          * Gets a list of trackers
          */
         protected void GetTrackers()
-        {
+        { 
+
             //connect to the EF DB
             using (GameTrackerConnection db = new GameTrackerConnection())
             {

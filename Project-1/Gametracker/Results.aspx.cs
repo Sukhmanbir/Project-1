@@ -53,7 +53,13 @@ namespace Project_1
 
         protected void GetGames()
         {
-            
+            // do nothing if there are no trackers
+            if (TrackerList.Items.Count == 0)
+            {
+                string errMsg = "Please create a game before you enter results.";
+                Response.Redirect("~/ErrorPage.aspx?error=" + errMsg);
+            }
+
             // get control values
             int tracker_id = Convert.ToInt32(TrackerList.SelectedValue);
 
@@ -141,11 +147,6 @@ namespace Project_1
                 int TeamBScore = Convert.ToInt32(TeamBScoreTextBox.Text);
 
                 // add the new information
-                game.Num_of_spectators = Convert.ToInt32(SpectatorTextbox.Text);
-                game.TeamAScore = TeamAScore;
-                game.TeamBScore = TeamBScore;
-                game.Total_scores = TeamAScore + TeamBScore;
-                
                 //save changes - run an update
                 db.SaveChanges();
 

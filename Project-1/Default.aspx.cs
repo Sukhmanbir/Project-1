@@ -76,12 +76,8 @@ namespace Project_1
                 //query the students table using EF and LINQ
                 var Games = (from allGames in db.Games
                              where allGames.tracker_fk == tracker_id
-                             where allGames.GameDate >= weekBegin && allGames.GameDate <= weekEnd
                              select allGames);
                     
-                //bind the result to the GridView    
-                GameDeatilsGridView.DataSource = Games.AsQueryable().ToList();
-                GameDeatilsGridView.DataBind();
             }
         }
         
