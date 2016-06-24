@@ -85,6 +85,15 @@ namespace Project_1 {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator teamBScoreValidator;
         
         /// <summary>
+        /// WinnerDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList WinnerDropDown;
+        
+        /// <summary>
         /// SpectatorTextbox control.
         /// </summary>
         /// <remarks>
@@ -101,6 +110,24 @@ namespace Project_1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator spectatorValidator;
+        
+        /// <summary>
+        /// GameDateTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox GameDateTextBox;
+        
+        /// <summary>
+        /// dateValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator dateValidator;
         
         /// <summary>
         /// RecordButton control.

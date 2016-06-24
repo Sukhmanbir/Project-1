@@ -46,11 +46,24 @@
                     Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
             <div class="form-group">
+                <label>Winning Team</label>
+                <asp:DropDownList ID="WinnerDropDown" runat="server" CssClass="form-control dropdown-toggle" />
+            </div>
+            <div class="form-group">
                 <label>Spectators</label>
                 <asp:TextBox runat="server" CssClass="form-control" ID="SpectatorTextbox"
                 placeholder="Total Spectators Present" required="true"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="spectatorValidator" runat="server" 
                     ErrorMessage="Please enter a total spectators present" 
+                    ControlToValidate="SpectatorTextbox"
+                    Display="Dynamic"></asp:RequiredFieldValidator>
+            </div>
+            <div class="form-group">
+                <label>Game Date</label>
+                <asp:TextBox runat="server" CssClass="form-control" ID="GameDateTextBox"
+                    placeholder="yyyy-mm-dd" required="true"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="dateValidator" runat="server" 
+                    ErrorMessage="Please enter the date of the game" 
                     ControlToValidate="SpectatorTextbox"
                     Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
