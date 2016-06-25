@@ -13,6 +13,24 @@ namespace Project_1 {
     public partial class Default {
         
         /// <summary>
+        /// noGameLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label noGameLabel;
+        
+        /// <summary>
+        /// trackerLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label trackerLabel;
+        
+        /// <summary>
         /// TrackerList control.
         /// </summary>
         /// <remarks>
@@ -20,6 +38,15 @@ namespace Project_1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList TrackerList;
+        
+        /// <summary>
+        /// gameLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl gameLabel;
         
         /// <summary>
         /// GameList control.

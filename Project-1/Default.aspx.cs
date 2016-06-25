@@ -7,6 +7,7 @@
         - Display games according to selected tracker
         - Display games according to date
         - Update game list according to selected tracker
+        - Hide controls if there are no results to show
     */
 using System;
 using System.Collections.Generic;
@@ -73,6 +74,24 @@ namespace Project_1
             //connect to EF DB
             using (GameTrackerConnection db = new GameTrackerConnection())
             {
+
+                // do nothing if there are no trackers
+                if (TrackerList.Items.Count == 0 || GameList.Items.Count == 0)
+                {
+                    // hide main page display elements
+                    ResultsGridView.Visible = false;
+                    TrackerList.Visible = false;
+                    GameList.Visible = false;
+                    trackerLabel.Visible = false;
+                    gameLabel.Visible = false;
+
+                    // show no game message
+                    noGameLabel.Visible = true;
+
+                    return;
+
+                }
+
                 // get control values
                 int tracker_id = Convert.ToInt32(TrackerList.SelectedValue);
 

@@ -17,16 +17,17 @@
     <div id="dash-header" class="row">
         <div class="col-xs-12 col-md-6">
             <h1>Game Results</h1>
+            <p class="text-center"><asp:Label ID="noGameLabel" runat="server">There are currently no game results to display.</asp:Label></p>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12 col-md-6">
-            <label for="trackers">Tracker:</label>
+            <asp:Label ID="trackerLabel" runat="server">Tracker:</asp:Label>
             <asp:DropDownList ID="TrackerList" runat="server" AutoPostBack="true" CssClass="form-control dropdown-toggle"
                 OnSelectedIndexChanged="TrackerList_SelectedIndexChanged" />
         </div>
         <div class="col-xs-12 col-md-6">
-            <label for="trackers">Game:</label>
+            <label id="gameLabel" runat="server">Game:</label>
             <asp:DropDownList ID="GameList" runat="server" AutoPostBack="true" CssClass="form-control dropdown-toggle" />
         </div>
     </div>
