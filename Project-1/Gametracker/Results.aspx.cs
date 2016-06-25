@@ -1,11 +1,12 @@
 ﻿/*
     Author's Name: Douglas Brunner
     Student Number: 020087918
-    Date Modified: June 22, 2016
+    Date Modified: June 24, 2016
     Description: Codebehind for Results.aspx
     Version History: Initial Commit
         - Display correct team information when tracker/games are changed
         - Display correct information in results form
+        - Add game results to database.
     */
 using System;
 using System.Collections.Generic;
@@ -172,23 +173,49 @@ namespace Project_1
             //connect to the EF DB
             using (GameTrackerConnection db = new GameTrackerConnection())
             {
-                //use tracker model to save the object
-                Models.Game game = new Models.Game();
+                // flag to track if we are adding a new game
+                bool newGame = false;
 
-                game = (from storedGame in db.Games
-                              where storedGame.GameID == gameID
+                // see if game result already exists
+                Models.GameResult result = (from storedGame in db.GameResults
+                              where storedGame.GameFK == gameID
                         select storedGame).FirstOrDefault();
 
+                // create a new result if no game result exists
+                if (result == null)
+                {
+                    result = new GameResult();
+                    newGame = true;
+                }
+
                 // obtain/calculate information
-                int TeamAScore = Convert.ToInt32(TeamAScoreTextBox.Text);
-                int TeamBScore = Convert.ToInt32(TeamBScoreTextBox.Text);
+                int teamAScore = Convert.ToInt32(TeamAScoreTextBox.Text);
+                int teamBScore = Convert.ToInt32(TeamBScoreTextBox.Text);
+                int totalScore = teamAScore + teamBScore;
+                int pointsAgainst = Math.Abs(teamAScore - teamBScore);
+
+                result.TeamA = 7;
+                result.TeamB = 8;
+                result.TeamAScore = teamAScore;
+                result.TeamBScore = teamBScore;
+                result.Winner = Convert.ToInt32(WinnerDropDown.SelectedValue);
+                result.GameFK = gameID;
+                result.TotalScore = totalScore;
+                result.PointsAgainst = pointsAgainst;
+                result.Spectators = Convert.ToInt32(SpectatorTextbox.Text);
+                result.GameDate = Convert.ToDateTime(GameDateTextBox.Text);
 
                 // add the new information
+                if (newGame)
+                {
+                    db.GameResults.Add(result);
+                }
+
                 //save changes - run an update
                 db.SaveChanges();
 
                 //redirect to the updated tracker table
-                Response.Redirect("~/Games.aspx");
+                Response.Redirect("~/Gametracker/Games.aspx");
             }
         }
     }

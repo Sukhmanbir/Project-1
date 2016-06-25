@@ -19,6 +19,7 @@
           <Property Name="Winner" Type="int" Nullable="false" />
           <Property Name="PointsAgainst" Type="int" Nullable="false" />
           <Property Name="GameFK" Type="int" Nullable="false" />
+          <Property Name="TotalScore" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Games">
           <Key>
@@ -79,30 +80,6 @@
             </Principal>
             <Dependent Role="Games">
               <PropertyRef Name="tracker_fk" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_GamesTeamA_ToTeam">
-          <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
-          <End Role="Games" Type="Self.Games" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teams">
-              <PropertyRef Name="TeamID" />
-            </Principal>
-            <Dependent Role="Games">
-              <PropertyRef Name="TeamA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_GamesTeamB_ToTeam">
-          <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
-          <End Role="Games" Type="Self.Games" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teams">
-              <PropertyRef Name="TeamID" />
-            </Principal>
-            <Dependent Role="Games">
-              <PropertyRef Name="TeamB" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -170,14 +147,6 @@
             <End Role="Trackers" EntitySet="Trackers" />
             <End Role="Games" EntitySet="Games" />
           </AssociationSet>
-          <AssociationSet Name="FK_GamesTeamA_ToTeam" Association="Self.FK_GamesTeamA_ToTeam">
-            <End Role="Teams" EntitySet="Teams" />
-            <End Role="Games" EntitySet="Games" />
-          </AssociationSet>
-          <AssociationSet Name="FK_GamesTeamB_ToTeam" Association="Self.FK_GamesTeamB_ToTeam">
-            <End Role="Teams" EntitySet="Teams" />
-            <End Role="Games" EntitySet="Games" />
-          </AssociationSet>
           <AssociationSet Name="Game_FK" Association="Self.Game_FK">
             <End Role="Games" EntitySet="Games" />
             <End Role="GameResults" EntitySet="GameResults" />
@@ -214,6 +183,7 @@
           <Property Name="Winner" Type="Int32" Nullable="false" />
           <Property Name="PointsAgainst" Type="Int32" Nullable="false" />
           <Property Name="GameFK" Type="Int32" Nullable="false" />
+          <Property Name="TotalScore" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Game" Relationship="Self.Game_FK" FromRole="GameResults" ToRole="Games" />
           <NavigationProperty Name="Team" Relationship="Self.TeamA_FK" FromRole="GameResults" ToRole="Teams" />
           <NavigationProperty Name="Team1" Relationship="Self.TeamB_FK" FromRole="GameResults" ToRole="Teams" />
@@ -232,8 +202,6 @@
           <NavigationProperty Name="GameResults" Relationship="Self.Game_FK" FromRole="Games" ToRole="GameResults" />
           <NavigationProperty Name="Tracker" Relationship="Self.FK_Game_Tracker_Cascade" FromRole="Games" ToRole="Trackers" />
           <NavigationProperty Name="Tracker1" Relationship="Self.FK_Games_ToTrackers" FromRole="Games" ToRole="Trackers" />
-          <NavigationProperty Name="Team" Relationship="Self.FK_GamesTeamA_ToTeam" FromRole="Games" ToRole="Teams" />
-          <NavigationProperty Name="Team1" Relationship="Self.FK_GamesTeamB_ToTeam" FromRole="Games" ToRole="Teams" />
         </EntityType>
         <EntityType Name="Table">
           <Key>
@@ -254,8 +222,6 @@
           <NavigationProperty Name="GameResults" Relationship="Self.TeamA_FK" FromRole="Teams" ToRole="GameResults" />
           <NavigationProperty Name="GameResults1" Relationship="Self.TeamB_FK" FromRole="Teams" ToRole="GameResults" />
           <NavigationProperty Name="GameResults2" Relationship="Self.WinningTeam_FK" FromRole="Teams" ToRole="GameResults" />
-          <NavigationProperty Name="Games" Relationship="Self.FK_GamesTeamA_ToTeam" FromRole="Teams" ToRole="Games" />
-          <NavigationProperty Name="Games1" Relationship="Self.FK_GamesTeamB_ToTeam" FromRole="Teams" ToRole="Games" />
         </EntityType>
         <EntityType Name="Tracker">
           <Key>
@@ -343,30 +309,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_GamesTeamA_ToTeam">
-          <End Role="Teams" Type="Self.Team" Multiplicity="1" />
-          <End Role="Games" Type="Self.Game" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teams">
-              <PropertyRef Name="TeamID" />
-            </Principal>
-            <Dependent Role="Games">
-              <PropertyRef Name="TeamA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_GamesTeamB_ToTeam">
-          <End Role="Teams" Type="Self.Team" Multiplicity="1" />
-          <End Role="Games" Type="Self.Game" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teams">
-              <PropertyRef Name="TeamID" />
-            </Principal>
-            <Dependent Role="Games">
-              <PropertyRef Name="TeamB" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="GameTrackerConnection" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="GameResults" EntityType="Self.GameResult" />
           <EntitySet Name="Games" EntityType="Self.Game" />
@@ -397,14 +339,6 @@
             <End Role="Trackers" EntitySet="Trackers" />
             <End Role="Games" EntitySet="Games" />
           </AssociationSet>
-          <AssociationSet Name="FK_GamesTeamA_ToTeam" Association="Self.FK_GamesTeamA_ToTeam">
-            <End Role="Teams" EntitySet="Teams" />
-            <End Role="Games" EntitySet="Games" />
-          </AssociationSet>
-          <AssociationSet Name="FK_GamesTeamB_ToTeam" Association="Self.FK_GamesTeamB_ToTeam">
-            <End Role="Teams" EntitySet="Teams" />
-            <End Role="Games" EntitySet="Games" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -425,6 +359,7 @@
                 <ScalarProperty Name="Winner" ColumnName="Winner" />
                 <ScalarProperty Name="PointsAgainst" ColumnName="PointsAgainst" />
                 <ScalarProperty Name="GameFK" ColumnName="GameFK" />
+                <ScalarProperty Name="TotalScore" ColumnName="TotalScore" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

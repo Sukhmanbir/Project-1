@@ -4,20 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="75f841d2200f43d59bba31287accf5bb" Name="Diagram1">
-        <EntityTypeShape EntityType="GameTrackerModel.GameResult" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GameTrackerModel.Game" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GameTrackerModel.Table" Width="1.5" PointX="5.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="GameTrackerModel.Team" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="GameTrackerModel.Tracker" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="b95cb6985d9b4ae2944b7c8535f9945c" Name="Diagram1">
+        <EntityTypeShape EntityType="GameTrackerModel.GameResult" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GameTrackerModel.Game" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GameTrackerModel.Table" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GameTrackerModel.Team" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GameTrackerModel.Tracker" Width="1.5" PointX="1.5" PointY="10" IsExpanded="true" />
         <AssociationConnector Association="GameTrackerModel.Game_FK" ManuallyRouted="false" />
         <AssociationConnector Association="GameTrackerModel.TeamA_FK" ManuallyRouted="false" />
         <AssociationConnector Association="GameTrackerModel.TeamB_FK" ManuallyRouted="false" />
         <AssociationConnector Association="GameTrackerModel.WinningTeam_FK" ManuallyRouted="false" />
         <AssociationConnector Association="GameTrackerModel.FK_Game_Tracker_Cascade" ManuallyRouted="false" />
         <AssociationConnector Association="GameTrackerModel.FK_Games_ToTrackers" ManuallyRouted="false" />
-        <AssociationConnector Association="GameTrackerModel.FK_GamesTeamA_ToTeam" ManuallyRouted="false" />
-        <AssociationConnector Association="GameTrackerModel.FK_GamesTeamB_ToTeam" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

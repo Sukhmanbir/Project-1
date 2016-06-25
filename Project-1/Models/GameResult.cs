@@ -24,6 +24,7 @@ namespace Project_1.Models
         public int Winner { get; set; }
         public int PointsAgainst { get; set; }
         public int GameFK { get; set; }
+        public int TotalScore { get; set; }
     
         public virtual Game Game { get; set; }
         public virtual Team Team { get; set; }

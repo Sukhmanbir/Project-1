@@ -31,7 +31,5 @@ namespace Project_1.Models
         public virtual ICollection<GameResult> GameResults { get; set; }
         public virtual Tracker Tracker { get; set; }
         public virtual Tracker Tracker1 { get; set; }
-        public virtual Team Team { get; set; }
-        public virtual Team Team1 { get; set; }
     }
 }
