@@ -11,13 +11,13 @@
         - Showed weekly dates as selected by user
         - Added validation to date textbox
         - Modify display to focus on individual game series
+        - Show message if no game results have been entered
 --%>
 <%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Project_1.Default" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div id="dash-header" class="row">
         <div class="col-xs-12 col-md-6">
             <h1>Game Results</h1>
-            <p class="text-center"><asp:Label ID="noGameLabel" runat="server">There are currently no game results to display.</asp:Label></p>
         </div>
     </div>
     <div class="row">
@@ -33,6 +33,7 @@
     </div>
     <div id="gameResults" class="row">
         <div class="col-xs-12">
+            <p class="text-center"><asp:Label ID="noGameLabel" runat="server" Visible="false">There are currently no game results to display.</asp:Label></p>
             <asp:GridView runat="server" CssClass="table table-bordered table-striped table-hover"
                     ID="ResultsGridView" AutoGenerateColumns="false">
                 <Columns>
