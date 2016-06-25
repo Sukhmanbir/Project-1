@@ -42,3 +42,11 @@ h1, h2 {
     #gameResults .row {
         margin: 2em 0 2em 0;
     }
+
+    a.navbar-brand{
+        padding: 0px;
+    }
+
+    a.navbar-brand>img{
+        margin-left: 15px;
+    }
