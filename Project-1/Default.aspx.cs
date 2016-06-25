@@ -6,6 +6,7 @@
     Version History: Initial Commit
         - Display games according to selected tracker
         - Display games according to date
+        - Update game list according to selected tracker
     */
 using System;
 using System.Collections.Generic;
@@ -28,21 +29,48 @@ namespace Project_1
          */
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            this.GetTrackers();
-            this.GetGames();
+            if (!IsPostBack)
+            {
+                this.GetTrackers();
+                this.GetGames();
+            }
+        }
+
+        /**
+         * Loads the games for this tracker
+         */
+        protected void GetGames()
+        {
+            //connect to EF DB
+            using (GameTrackerConnection db = new GameTrackerConnection())
+            {
+                // get control values
+                int tracker_id = Convert.ToInt32(TrackerList.SelectedValue);
+
+                //query the students table using EF and LINQ
+                var Games = (from allGames in db.Games
+                             where allGames.tracker_fk == tracker_id
+                             select allGames).ToList();
+
+                //bind the result to the GridView
+                GameList.DataValueField = "GameID";
+                GameList.DataTextField = "GameName";
+                GameList.DataSource = Games;
+                GameList.DataBind();
+
+            }
         }
 
         /**
          * Gets the list of games for selected tracker
          */
-        protected void GetGames()
+        protected void GetGames2()
         {
             
             //connect to EF DB
             using (GameTrackerConnection db = new GameTrackerConnection())
             {
-
+                /*
                 // get control values
                 int tracker_id = Convert.ToInt32(TrackerList.SelectedValue);
 
@@ -60,7 +88,6 @@ namespace Project_1
                 }
 
                 // set the dates
-                
                 dateMinus3.InnerText    = selectedDate.AddDays(-3).ToString("yyyy-MM-dd");
                 dateMinus2.InnerText    = selectedDate.AddDays(-2).ToString("yyyy-MM-dd");
                 dateMinus1.InnerText    = selectedDate.AddDays(-1).ToString("yyyy-MM-dd");
@@ -77,7 +104,7 @@ namespace Project_1
                 var Games = (from allGames in db.Games
                              where allGames.tracker_fk == tracker_id
                              select allGames);
-                    
+                  */  
             }
         }
         
@@ -105,5 +132,12 @@ namespace Project_1
             }
         }
 
+        /**
+         * Updates the games when tracker changes
+         */
+        protected void TrackerList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.GetGames();
+        }
     }
 }
