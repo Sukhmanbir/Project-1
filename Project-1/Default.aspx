@@ -41,7 +41,8 @@
                     <asp:BoundField DataField="TeamBScore" HeaderText="Team B Score" Visible="true" />
                     <asp:BoundField DataField="TotalScore" HeaderText="TotalScore" Visible="true" />
                     <asp:BoundField DataField="Winner" HeaderText="Winner" Visible="true" />
-                    <asp:BoundField DataField="PointsAgainst" HeaderText="PointsAgainst" Visible="true" />
+                    <asp:BoundField DataField="PointsAgainst" HeaderText="Points Against" Visible="true" />
+                    <asp:BoundField DataField="GameDate" HeaderText="Game Date" Visible="true" />
                 </Columns>
             </asp:GridView>
         </div>

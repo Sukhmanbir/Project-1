@@ -6,7 +6,8 @@
     Version History: Initial Commit
         - Display correct team information when tracker/games are changed
         - Display correct information in results form
-        - Add game results to database.
+        - Add game results to database
+        - Fix bug where old game results were being overwritten
     */
 using System;
 using System.Collections.Generic;
@@ -25,8 +26,8 @@ namespace Project_1
     public partial class Results : System.Web.UI.Page
     {
 
-        int teamAID = 7;
-        int teamBID = 8;
+        int teamAID;
+        int teamBID;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -194,8 +195,6 @@ namespace Project_1
                 int totalScore = teamAScore + teamBScore;
                 int pointsAgainst = Math.Abs(teamAScore - teamBScore);
 
-                result.TeamA = 7;
-                result.TeamB = 8;
                 result.TeamAScore = teamAScore;
                 result.TeamBScore = teamBScore;
                 result.Winner = Convert.ToInt32(WinnerDropDown.SelectedValue);
@@ -206,10 +205,7 @@ namespace Project_1
                 result.GameDate = Convert.ToDateTime(GameDateTextBox.Text);
 
                 // add the new information
-                if (newGame)
-                {
-                    db.GameResults.Add(result);
-                }
+                db.GameResults.Add(result);
 
                 //save changes - run an update
                 db.SaveChanges();
