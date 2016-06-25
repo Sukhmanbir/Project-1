@@ -31,6 +31,15 @@ namespace Project_1 {
         protected global::System.Web.UI.WebControls.DropDownList GameList;
         
         /// <summary>
+        /// headerLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label headerLabel;
+        
+        /// <summary>
         /// TeamALabel control.
         /// </summary>
         /// <remarks>
@@ -85,6 +94,15 @@ namespace Project_1 {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator teamBScoreValidator;
         
         /// <summary>
+        /// winnerLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label winnerLabel;
+        
+        /// <summary>
         /// WinnerDropDown control.
         /// </summary>
         /// <remarks>
@@ -92,6 +110,15 @@ namespace Project_1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList WinnerDropDown;
+        
+        /// <summary>
+        /// spectatorLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label spectatorLabel;
         
         /// <summary>
         /// SpectatorTextbox control.
@@ -110,6 +137,15 @@ namespace Project_1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator spectatorValidator;
+        
+        /// <summary>
+        /// dateLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label dateLabel;
         
         /// <summary>
         /// GameDateTextBox control.

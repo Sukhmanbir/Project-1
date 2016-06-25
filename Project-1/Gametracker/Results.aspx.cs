@@ -8,6 +8,7 @@
         - Display correct information in results form
         - Add game results to database
         - Fix bug where old game results were being overwritten
+        - hide controls when there are no results to show
     */
 using System;
 using System.Collections.Generic;
@@ -128,12 +129,23 @@ namespace Project_1
         private void updateNames()
         {
 
-            // do nothing if no game has been selected
+            // hide elements if there are no games
             if (GameList.Items.Count == 0)
             {
+                TeamALabel.Visible = false;
+                TeamBLabel.Visible = false;
+                TeamAScoreTextBox.Visible = false;
+                TeamBScoreTextBox.Visible = false;
+                winnerLabel.Visible = false;
+                WinnerDropDown.Visible = false;
+                spectatorLabel.Visible = false;
+                SpectatorTextbox.Visible = false;
+                dateLabel.Visible = false;
+                GameDateTextBox.Visible = false;
+                RecordButton.Visible = false;
                 return;
             }
-            
+
             int gameID = Convert.ToInt32(GameList.SelectedValue);
 
             //connect to EF DB
@@ -213,6 +225,14 @@ namespace Project_1
                 //redirect to the updated tracker table
                 Response.Redirect("~/Gametracker/Games.aspx");
             }
+        }
+
+        /**
+         * Redirects users back to the homepage
+         */
+        protected void Unnamed_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
         }
     }
 }

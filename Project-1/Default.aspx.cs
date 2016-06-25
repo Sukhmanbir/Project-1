@@ -8,6 +8,7 @@
         - Display games according to date
         - Update game list according to selected tracker
         - Hide controls if there are no results to show
+        - Show message if no game results have been entered
     */
 using System;
 using System.Collections.Generic;
@@ -101,6 +102,11 @@ namespace Project_1
                 var results = (from gameResult in db.ResultsViews
                                where gameResult.GameID == game_id
                                 select gameResult);
+
+                if (results.AsQueryable().ToList().Count == 0)
+                {
+                    noGameLabel.Visible = true;
+                }
 
                 //bind the result to the GridView
                 ResultsGridView.DataSource = results.AsQueryable().ToList();
