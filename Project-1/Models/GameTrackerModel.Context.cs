@@ -30,5 +30,6 @@ namespace Project_1.Models
         public virtual DbSet<Table> Tables { get; set; }
         public virtual DbSet<Team> Teams { get; set; }
         public virtual DbSet<Tracker> Trackers { get; set; }
+        public virtual DbSet<ResultsView> ResultsViews { get; set; }
     }
 }

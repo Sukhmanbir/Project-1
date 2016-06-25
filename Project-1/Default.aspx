@@ -32,7 +32,18 @@
     </div>
     <div id="gameResults" class="row">
         <div class="col-xs-12">
-
+            <asp:GridView runat="server" CssClass="table table-bordered table-striped table-hover"
+                    ID="ResultsGridView" AutoGenerateColumns="false">
+                <Columns>
+                    <asp:BoundField DataField="TeamA" HeaderText="Team A" Visible="true" />
+                    <asp:BoundField DataField="TeamAScore" HeaderText="Team A Score" Visible="true" />
+                    <asp:BoundField DataField="TeamB" HeaderText="Team B" Visible="true" />
+                    <asp:BoundField DataField="TeamBScore" HeaderText="Team B Score" Visible="true" />
+                    <asp:BoundField DataField="TotalScore" HeaderText="TotalScore" Visible="true" />
+                    <asp:BoundField DataField="Winner" HeaderText="Winner" Visible="true" />
+                    <asp:BoundField DataField="PointsAgainst" HeaderText="PointsAgainst" Visible="true" />
+                </Columns>
+            </asp:GridView>
         </div>
     </div>
 </asp:Content>

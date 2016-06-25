@@ -59,53 +59,36 @@ namespace Project_1
                 GameList.DataBind();
 
             }
+
+            // load the game results
+            this.GetResults();
+
         }
 
         /**
-         * Gets the list of games for selected tracker
+         * Loads the game results
          */
-        protected void GetGames2()
+        protected void GetResults()
         {
-            
             //connect to EF DB
             using (GameTrackerConnection db = new GameTrackerConnection())
             {
-                /*
                 // get control values
                 int tracker_id = Convert.ToInt32(TrackerList.SelectedValue);
 
-                // holds the selected date
-                DateTime selectedDate;
-
-                // set the selected date to today if it hasn't already been set
-                if (gameDateText.Text.Equals(""))
-                {
-                    selectedDate = DateTime.Today;
-                    gameDateText.Text = selectedDate.ToString("yyyy-MM-dd");
-                } else
-                {
-                    selectedDate = Convert.ToDateTime(gameDateText.Text.ToString());
-                }
-
-                // set the dates
-                dateMinus3.InnerText    = selectedDate.AddDays(-3).ToString("yyyy-MM-dd");
-                dateMinus2.InnerText    = selectedDate.AddDays(-2).ToString("yyyy-MM-dd");
-                dateMinus1.InnerText    = selectedDate.AddDays(-1).ToString("yyyy-MM-dd");
-                
-                datePlus1.InnerText     = selectedDate.AddDays(1).ToString("yyyy-MM-dd");
-                datePlus2.InnerText     = selectedDate.AddDays(2).ToString("yyyy-MM-dd");
-                datePlus3.InnerText     = selectedDate.AddDays(3).ToString("yyyy-MM-dd");
-
-                // set the range of dates to pull games from
-                DateTime weekBegin = selectedDate.AddDays(-3);
-                DateTime weekEnd = selectedDate.AddDays(3);
+                int game_id = Convert.ToInt32(GameList.SelectedValue);
 
                 //query the students table using EF and LINQ
-                var Games = (from allGames in db.Games
-                             where allGames.tracker_fk == tracker_id
-                             select allGames);
-                  */  
+                var results = (from gameResult in db.ResultsViews
+                               where gameResult.GameID == game_id
+                                select gameResult);
+
+                //bind the result to the GridView
+                ResultsGridView.DataSource = results.AsQueryable().ToList();
+                ResultsGridView.DataBind();
+
             }
+            
         }
         
         /**

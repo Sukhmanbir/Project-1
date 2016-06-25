@@ -291,6 +291,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GameTrackerModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ResultsView.cs">
+      <DependentUpon>GameTrackerModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Table.cs">
       <DependentUpon>GameTrackerModel.tt</DependentUpon>
     </Compile>
